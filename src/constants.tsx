@@ -1,13 +1,9 @@
 import { ReactNode } from "react";
 import {
-  AiFillGithub,
   AiOutlineGithub,
-  AiFillInstagram,
   AiOutlineInstagram,
-  AiFillTwitterSquare,
   AiOutlineTwitter,
   AiFillLinkedin,
-  AiOutlineLinkedin,
 } from "react-icons/ai";
 
 export type PageRoute = {
@@ -51,25 +47,25 @@ export const SOCIALS: Socials[] = [
     socialId: 0,
     socialHref: "https://twitter.com/fe_mi__",
     socialName: "Twitter",
-    socialIcon: <AiOutlineTwitter size={25} />,
+    socialIcon: <AiOutlineTwitter size={20} />,
   },
   {
     socialId: 1,
     socialHref: "https://github.com/stanwukong",
     socialName: "Github",
-    socialIcon: <AiOutlineGithub size={25} />,
+    socialIcon: <AiOutlineGithub size={20} />,
   },
   {
     socialId: 2,
     socialHref: "https://instagram.com/not_femi",
     socialName: "Instagram",
-    socialIcon: <AiOutlineInstagram size={25} />,
+    socialIcon: <AiOutlineInstagram size={20} />,
   },
   {
     socialId: 3,
     socialHref: "https://linkedin.com/in/stanwukong",
     socialName: "LinkedIn",
-    socialIcon: <AiFillLinkedin size={25} />,
+    socialIcon: <AiFillLinkedin size={20} />,
   },
 ];
 

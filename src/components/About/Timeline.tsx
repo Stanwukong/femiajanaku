@@ -1,9 +1,8 @@
 import React from "react";
 import { timelineData } from "@/constants";
 
-type Props = {};
 
-const Timeline = (props: Props) => {
+const Timeline = () => {
   return (
     <div className="w-full">
       {/* Vertical Line */}

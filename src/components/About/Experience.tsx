@@ -1,11 +1,9 @@
 import React from "react";
-import { Button } from "../ui/button";
 import Link from "next/link";
 import Timeline from "./Timeline";
 
-type Props = {};
 
-const Experience = (props: Props) => {
+const Experience = () => {
   return (
     <div className="flex flex-col my-10">
       <span className="text-4xl mb-8">Experience</span>

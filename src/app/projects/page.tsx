@@ -2,9 +2,7 @@ import ProjectCard from "@/components/projects/ProjectCard";
 import { Projects } from "@/constants";
 import React from "react";
 
-type Props = {};
-
-const ProjectsPage = (props: Props) => {
+const ProjectsPage = () => {
   return (
     <div className="flex flex-col py-8 px-4 space-y-40 justify-center mx-auto max-w-screen-xl">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">

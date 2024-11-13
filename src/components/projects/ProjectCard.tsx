@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 type ProjectProps = {
-  key: number;
   title: string;
   image: string;
   description: string;
@@ -10,7 +10,6 @@ type ProjectProps = {
 };
 
 const ProjectCard = ({
-  key,
   title,
   image,
   description,
@@ -18,7 +17,7 @@ const ProjectCard = ({
 }: ProjectProps) => {
   return (
     <div className="flex flex-col border border-black p-4 space-y-4">
-      <img src={image} alt={title} />
+      <Image src={image} alt={title} />
       <span>
         <h2 className="text-2xl">{title}</h2>
       </span>

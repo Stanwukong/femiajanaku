@@ -1,9 +1,7 @@
 import React from "react";
 import { STATS } from "@/constants";
 
-type Props = {};
-
-const Bio = (props: Props) => {
+const Bio = () => {
   return (
     <div className="flex flex-col">
       <span className="text-4xl mb-8">About Me</span>

@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Resume = (props: Props) => {
+const Resume = () => {
   return (
     <div style={{ width: "100%", height: "100vh" }}>
     <iframe

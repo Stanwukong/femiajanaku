@@ -4,9 +4,8 @@ import React, { useEffect } from "react";
 import Greeting from "../Greeting";
 import { animateBox } from "@/utils/animations";
 
-type Props = {};
 
-const Hero = (props: Props) => {
+const Hero = () => {
   useEffect(() => {
     animateBox();
   }, []);
@@ -15,7 +14,7 @@ const Hero = (props: Props) => {
     <div className="flex flex-col space-y-5 relative">
       <span className="box w-[10px] h-[10px] bg-black" />
       <span>
-        <Greeting /> I'm
+        <Greeting /> I&apos;m
       </span>
       <p className="text-3xl font">Femi Ajanaku</p>
     </div>
