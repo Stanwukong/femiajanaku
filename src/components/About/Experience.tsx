@@ -22,7 +22,7 @@ const Experience = (props: Props) => {
             href="/resume"
             target="_blank"
             passHref
-            className="px-8 py-3 bg-black text-white border-black hover:bg-white hover:text-black hover:border"
+            className="px-8 py-3 bg-black text-white border-black transition-colors hover:bg-white hover:text-black hover:border"
           >
             Resume
           </Link>

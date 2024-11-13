@@ -40,3 +40,18 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
         })
     }
 }
+
+export const animateBox = () => {
+    const tl = gsap.timeline();
+
+    tl.from(".box", { 
+        duration: 1.5, 
+        x: 100, 
+        y: 100, 
+        scale: 100, 
+        rotation: 180,
+        delay: 1, 
+        backgroundColor: "white"
+    });
+}
+

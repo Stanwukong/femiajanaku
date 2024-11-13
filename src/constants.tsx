@@ -132,7 +132,7 @@ export const timelineData = [
     title: "Software Engineer",
     company: "VendBite",
     location: "Manchester, UK",
-    date: "05/24 - Present",
+    date: "02/24 - Present",
     description:
       "Building and maintaining the VendBite platform, a food delivery service for local restaurants. I work on the frontend and backend, and I also provide mentorship to junior developers. I also gained experience in DevOps and WordPress platforms.",
   },
@@ -141,26 +141,60 @@ export const timelineData = [
     title: "Frontend Developer",
     company: "Basicons",
     location: "Amsterdam, Netherlands",
-    date: "09/23 - 04/24",
+    date: "09/23 - 02/24",
     description:
-      "At Basicons, I advanced my skills in frontend development and software architecture to drive project optimization.",
+      "At Basicons, I advanced my skills in frontend development and software architecture to drive project optimization by refactoring the legacy codebase to meet modern standards.",
   },
   {
     id: 3,
     title: "Frontend Developer (Intern)",
     company: "Lykdat",
     location: "Amsterdam, Netherlands",
-    date: "06/22 - 08/23",
+    date: "10/22 - 12/22",
     description:
-      "I joined Infraveo Technologies as an Associate Frontend Developer, working on HTML, CSS, and JavaScript to create web applications. I also provided mentorship to junior developers.",
+      "I joined Lykdat as an intern, where I contributed to multiple projects and developed a solid understanding of professional development and team collaboration. During this time, I gained hands-on experience with React and TypeScript, enhancing my skills in building dynamic and scalable web applications.",
   },
   {
     id: 4,
     title: "Website Developer",
     company: "Freelancer",
     location: "Lagos, Nigeria",
-    date: "12/21 - 05/22",
+    date: "08/22 - Present",
     description:
-      "I began my career as an intern at Infraveo Technologies, gaining firsthand experience in web development and working on live projects.",
+      "I started my career as a freelancer, where I built websites for small businesses and individuals. I gained experience in client communication, project management, and web development.",
+  },
+];
+
+export const Projects = [
+  {
+    id: 1,
+    name: "VendBite",
+    description:
+      "Platform connecting users to curated dining, catering, and delivery services. Built with NextJS and TailwindCSS.",
+    href: "http://test.app.vendbite.com/account/create",
+    image: "/vendbite.png",
+  },
+  {
+    id: 2,
+    name: "Basicons",
+    description:
+      "Modular icon package for designers, built with TypeScript and React.",
+    href: "https://basicons.xyz/",
+    image: "/basicons.png",
+  },
+  {
+    id: 3,
+    name: "KnowBuddy",
+    description: "AI Powered Chatbot. Built with Webflow",
+    href: "https://knowbuddy.ai/",
+    image: "/knowbuddy.png",
+  },
+  {
+    id: 4,
+    name: "Airbnb Clone",
+    description:
+      "A simple clone of the AirBnb software system. Built with React and TailwindCSS",
+    href: "https://rentalsclone.vercel.app/",
+    image: "/rentals.png",
   },
 ];
