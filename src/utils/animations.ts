@@ -55,3 +55,12 @@ export const animateBox = () => {
     });
 }
 
+export const scaleOut = () => {
+    const tl = gsap.timeline();
+
+    tl.to(".biggify", {
+        duration: 1,
+        scale: 0.1,
+        backgroundColor: "black",
+    });
+}

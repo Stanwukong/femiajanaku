@@ -12,6 +12,17 @@ export type PageRoute = {
   pageName: string;
 };
 
+interface MobilePage {
+  pageId: number;
+  pageRoute: string;
+  pageName: string;
+}
+
+export type MobilePageRoute = {
+  title: string;
+  pages: MobilePage[];
+}
+
 export type Socials = {
   socialId: number;
   socialName: string;
@@ -194,3 +205,38 @@ export const Projects = [
     image: "/rentals.png",
   },
 ];
+
+export const MOBILE_PAGES: MobilePageRoute[] = [
+  {
+    title: "NAVIGATION",
+    pages: [
+      {
+        pageId: 1,
+        pageRoute: "/",
+        pageName: "Home",
+      },
+      {
+        pageId: 2,
+        pageRoute: "/about",
+        pageName: "About",
+      },
+      {
+        pageId: 3,
+        pageRoute: "/projects",
+        pageName: "Projects",
+      },
+    ]
+
+  },
+  {
+    title: "INFORMATION",
+    pages: [
+      {
+        pageId: 1,
+        pageRoute: "/resume",
+        pageName: "Resume",
+      }
+    ]
+
+  }
+]

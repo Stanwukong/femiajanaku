@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
 import React, { useEffect } from "react";
 import Greeting from "../Greeting";
 import { animateBox } from "@/utils/animations";
-
 
 const Hero = () => {
   useEffect(() => {
@@ -12,7 +11,10 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col space-y-5 relative">
-      <span className="box w-[10px] h-[10px] bg-black" />
+      <div className="flex items-center space-x-4 ">
+        <span className="box w-[10px] h-[10px] bg-black animate-ping" />
+        <p >AVAILABLE FOR FREELANCE WORK</p>
+      </div>
       <span>
         <Greeting /> I&apos;m
       </span>
