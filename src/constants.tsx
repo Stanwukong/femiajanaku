@@ -141,7 +141,7 @@ export const timelineData = [
     location: "Manchester, UK",
     date: "02/24 - Present",
     description:
-      "Building and maintaining the VendBite platform, a food delivery service for local restaurants. I work on the frontend and backend, and I also provide mentorship to junior developers. I also gained experience in DevOps and WordPress platforms.",
+      "Building and maintaining the VendBite platform, a food delivery service for events and local restaurants . I work on the frontend and have gained experience in working with devOps tools.",
   },
   {
     id: 2,

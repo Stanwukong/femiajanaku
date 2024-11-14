@@ -6,7 +6,7 @@ const Wrapper = () => {
   return (
     <div className="w-full">
       {MOBILE_PAGES.map((item) => (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full" key={item.title}>
           <span className="m-4">{item.title}</span>
           <div className="flex flex-col w-full divide-y-[1px] divide-black ">
             {item.pages.map((page) => (
