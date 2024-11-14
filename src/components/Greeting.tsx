@@ -2,9 +2,8 @@
 import { GREETINGS } from "@/constants";
 import { useState } from "react";
 
-type Props = {};
 
-const Greeting = (props: Props) => {
+const Greeting = () => {
   const [index, setIndex] = useState(0);
 
   const handleGreeting = () => {

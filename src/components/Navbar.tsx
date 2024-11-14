@@ -4,9 +4,8 @@ import { PAGES as pages, SOCIALS as socials } from "@/constants";
 
 import TransitionLink from "./TransitionLink";
 
-type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <div className="flex w-full p-3 md:justify-between lg:justify-evenly items-center">
       {/* Pages */}

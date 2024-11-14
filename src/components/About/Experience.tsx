@@ -10,7 +10,7 @@ const Experience = () => {
 
       <div className="flex flex-col space-y-8">
         <p>
-          With over 2 years in software development, I've developed a strong
+          With over 2 years in software development, I&apos;ve developed a strong
           foundation across front-end and back-end development, software
           architecture, and UI/UX design.
         </p>
