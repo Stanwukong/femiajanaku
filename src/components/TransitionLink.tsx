@@ -5,13 +5,15 @@ import { animatePageOut } from "@/utils/animations";
 type Props = {
   href: string;
   label: string;
+  onModalClose: () => void
 };
 
-const TransitionLink = ({ href, label }: Props) => {
+const TransitionLink = ({ href, label, onModalClose }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
 
   const handleClick = () => {
+    () => onModalClose();
     if (pathname != href) {
       animatePageOut(href, router);
     }

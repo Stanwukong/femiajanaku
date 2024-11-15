@@ -1,5 +1,6 @@
 import React from "react";
 import { STATS } from "@/constants";
+import Link from "next/link";
 
 const Bio = () => {
   return (
@@ -11,6 +12,17 @@ const Bio = () => {
           Hi there! I am Femi, I am a software developer with a passion for
           solving complex problems and building visually appealing and seamless
           user interfaces.
+        </p>
+        <p>
+          I{" "}
+          <Link
+            href={"https://femiajanaku.hashnode.dev/"}
+            target="_blank"
+            className="px-3 py-2 border border-black hover:bg-black hover:text-white"
+          >
+            write
+          </Link>{" "}
+          sometimes.
         </p>
 
         <section className="flex flex-col md:flex-row space-y-5 md:space-y-0 w-full justify-between">

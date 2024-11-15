@@ -6,6 +6,7 @@ import TransitionLink from "./TransitionLink";
 import Modal from "./Modal";
 import { useState } from "react";
 import Wrapper from "@/components/Wrapper";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,6 +27,7 @@ const Navbar = () => {
             key={page.pageId}
             href={page.pageRoute}
             label={page.pageName}
+            onModalClose={handleCloseModal}
           />
         ))}
       </div>
@@ -35,12 +37,8 @@ const Navbar = () => {
           <Wrapper />
         </div>
       </Modal>
-      <button
-        onClick={handleOpenModal}
-        className="px-6 py-3 border border-black cursor-pointer hover:text-white hover:bg-black"
-      >
-        <span>FEMI</span>
-      </button>
+      <Logo onModalOpen={handleOpenModal} />
+
       {/* SOCIALS */}
       <div className="hidden md:flex space-x-8">
         {socials.map((social) => (

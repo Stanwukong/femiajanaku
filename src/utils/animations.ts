@@ -55,4 +55,13 @@ export const animateBox = () => {
     });
 }
 
+export const animateLogo = () => {
+    const tl = gsap.timeline();
 
+    const logo = document.querySelector(".animate-logo")
+
+    tl.from(logo, { 
+        duration: 1.5, 
+        x: 300,
+    });
+}
