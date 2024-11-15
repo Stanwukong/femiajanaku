@@ -5,7 +5,7 @@ import { animatePageOut } from "@/utils/animations";
 type Props = {
   href: string;
   label: string;
-  onModalClose: () => void
+  onModalClose: () => void;
 };
 
 const TransitionLink = ({ href, label, onModalClose }: Props) => {
@@ -13,7 +13,8 @@ const TransitionLink = ({ href, label, onModalClose }: Props) => {
   const pathname = usePathname();
 
   const handleClick = () => {
-    () => onModalClose();
+    const close = () => onModalClose();
+    close();
     if (pathname != href) {
       animatePageOut(href, router);
     }
@@ -21,7 +22,9 @@ const TransitionLink = ({ href, label, onModalClose }: Props) => {
   return (
     <button
       onClick={handleClick}
-      className={`pb-2 ${pathname == href && "underline"} border-black hover:underline underline-offset-8`}
+      className={`pb-2 ${
+        pathname == href && "underline"
+      } border-black hover:underline underline-offset-8`}
     >
       {label}
     </button>

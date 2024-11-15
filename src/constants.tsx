@@ -68,7 +68,7 @@ export const SOCIALS: Socials[] = [
   },
   {
     socialId: 2,
-    socialHref: "https://instagram.com/not_femi",
+    socialHref: "https://instagram.com/f.e__m.i",
     socialName: "Instagram",
     socialIcon: <AiOutlineInstagram size={20} />,
   },
@@ -141,7 +141,7 @@ export const timelineData = [
     location: "Manchester, UK",
     date: "02/24 - Present",
     description:
-      "Building and maintaining the VendBite platform, a food delivery service for events and local restaurants . I work on the frontend and have gained experience in working with devOps tools.",
+      "Building and maintaining the VendBite platform, a food delivery service for events and local restaurants . I work on the frontend and through collaboration with teammates have gained some insight into devOps processes.",
   },
   {
     id: 2,
