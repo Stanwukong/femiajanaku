@@ -14,13 +14,13 @@ const Bio = () => {
           user interfaces.
         </p>
         <p>
-          I{" "}
+          I also{" "}
           <Link
             href={"https://femiajanaku.hashnode.dev/"}
             target="_blank"
             className="px-3 py-2 border border-black hover:bg-black hover:text-white"
           >
-            also write
+            write
           </Link>{" "}
           sometimes.
         </p>
