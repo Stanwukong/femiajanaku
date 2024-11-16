@@ -20,7 +20,7 @@ const Bio = () => {
             target="_blank"
             className="px-3 py-2 border border-black hover:bg-black hover:text-white"
           >
-            write
+            also write
           </Link>{" "}
           sometimes.
         </p>

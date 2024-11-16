@@ -204,6 +204,14 @@ export const Projects = [
     href: "https://rentalsclone.vercel.app/",
     image: "/rentals.png",
   },
+  {
+    id: 5,
+    name: "Boston Power",
+    description:
+      "A business website for Boston Power energy company. Built with WordPress",
+    href: "https://bostonpower.ng/",
+    image: "/boston_power.png",
+  },
 ];
 
 export const MOBILE_PAGES: MobilePageRoute[] = [
