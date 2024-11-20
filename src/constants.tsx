@@ -191,13 +191,6 @@ export const Projects = [
   },
   {
     id: 3,
-    name: "KnowBuddy",
-    description: "AI Powered Chatbot. Built with Webflow",
-    href: "https://knowbuddy.ai/",
-    image: "/knowbuddy.png",
-  },
-  {
-    id: 4,
     name: "Airbnb Clone",
     description:
       "A simple clone of the AirBnb software system. Built with React and TailwindCSS",
@@ -205,7 +198,7 @@ export const Projects = [
     image: "/rentals.png",
   },
   {
-    id: 5,
+    id: 4,
     name: "Boston Power",
     description:
       "A business website for Boston Power energy company. Built with WordPress",

@@ -17,7 +17,7 @@ const Logo = ({ onModalOpen }: Props) => {
       
       <button
         onClick={onModalOpen}
-        className="px-6 py-3 border border-black cursor-pointer hover:text-white hover:bg-black"
+        className="px-6 py-3 border border-black cursor-pointer hover:text-white hover:bg-black transition-colors"
       >
         <span>FEMI</span>
       </button>

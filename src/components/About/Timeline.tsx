@@ -13,7 +13,7 @@ const Timeline = () => {
           {/* Dot */}
           <div
             className={`absolute  w-4 h-4 bg-gray-800 rounded-full ${
-              item.id == 1 && "animate-ping"
+              item.id == 1 && "animate-pulse"
             }`}
           ></div>
 

@@ -13,7 +13,7 @@ const Hero = () => {
     <div className="flex flex-col space-y-5 relative">
       <div className="flex items-center space-x-4 ">
         <span className="box w-[10px] h-[10px] bg-black animate-ping" />
-        <p >AVAILABLE FOR FREELANCE WORK</p>
+        <p>AVAILABLE FOR FULL-TIME ROLES AND FREELANCE WORK</p>
       </div>
       <span>
         <Greeting /> I&apos;m

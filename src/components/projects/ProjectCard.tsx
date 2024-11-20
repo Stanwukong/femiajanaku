@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 type ProjectProps = {
   title: string;
@@ -9,24 +11,22 @@ type ProjectProps = {
   link: string;
 };
 
-const ProjectCard = ({
-  title,
-  image,
-  description,
-  link,
-}: ProjectProps) => {
-  
+const ProjectCard = ({ title, image, description, link }: ProjectProps) => {
   return (
-    <div className="flex flex-col border border-black bg-white p-4 space-y-4 hover:scale-90 lg:hover:scale-110">
+    <div className="flex flex-col border border-black bg-white p-4 space-y-4 md:hover:scale-110">
       <Image src={image} alt={title} width={1000} height={1000} />
       <span>
         <h2 className="text-2xl">{title}</h2>
       </span>
 
       <p>{description}</p>
-      <Button className="border-black hover:text-black hover:bg-white hover:border transition-colors">
-        <a href={link}>View Project</a>
-      </Button>
+      <Link
+        href={link}
+        passHref
+        className="w-full p-3 text-center bg-black text-white hover:bg-white hover:text-black border-black border transition-colors"
+      >
+        View Project
+      </Link>
     </div>
   );
 };

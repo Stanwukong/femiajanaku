@@ -1,4 +1,4 @@
-import { MOBILE_PAGES } from "@/constants";
+import { MOBILE_PAGES, SOCIALS } from "@/constants";
 import Link from "next/link";
 import React from "react";
 
@@ -7,8 +7,10 @@ const Wrapper = () => {
     <div className="w-full">
       {MOBILE_PAGES.map((item) => (
         <div className="flex flex-col w-full" key={item.title}>
-          <span className="m-4">{item.title}</span>
-          <div className="flex flex-col w-full divide-y-[1px] divide-black ">
+          <span className="mx-3 my-2 text-neutral-700 text-xs">
+            {item.title}
+          </span>
+          <div className="flex flex-col w-full ">
             {item.pages.map((page) => (
               <Link
                 href={page.pageRoute}
@@ -21,6 +23,13 @@ const Wrapper = () => {
           </div>
         </div>
       ))}
+      <div className="flex w-full justify-evenly py-4">
+        {SOCIALS.map((social) => (
+          <a key={social.socialId} href={social.socialHref}>
+            {social.socialIcon}
+          </a>
+        ))}
+      </div>
     </div>
   );
 };

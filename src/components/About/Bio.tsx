@@ -18,7 +18,7 @@ const Bio = () => {
           <Link
             href={"https://femiajanaku.hashnode.dev/"}
             target="_blank"
-            className="px-3 py-2 border border-black hover:bg-black hover:text-white"
+            className="px-3 py-2 border border-black hover:bg-black hover:text-white transition-colors"
           >
             write
           </Link>{" "}
