@@ -4,7 +4,7 @@ import React from "react";
 
 const Wrapper = () => {
   return (
-    <div className="w-full">
+    <div className="w-full divide-y divide-black">
       {MOBILE_PAGES.map((item) => (
         <div className="flex flex-col w-full" key={item.title}>
           <span className="mx-3 my-2 text-neutral-700 text-xs">

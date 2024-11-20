@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="flex w-full p-3 md:justify-between lg:justify-evenly items-center">
       {/* Pages */}
-      <div className="hidden md:flex space-x-8 ">
+      <div className="hidden md:flex space-x-8">
         {pages.map((page) => (
           <TransitionLink
             key={page.pageId}
