@@ -174,7 +174,14 @@ export const timelineData = [
 
 export const Projects = [
   {
-    id: 1,
+    id: 1, 
+    name: "Cloudify",
+    description: "A cloud storage service for storing and sharing files. Built with NextJS, Tailwind, and Appwrite.",
+    href: "https://cloud-storage-pearl.vercel.app/",
+    image: "/cloudup.png"
+  },
+  {
+    id: 2,
     name: "VendBite",
     description:
       "Platform connecting users to curated dining, catering, and delivery services. Built with NextJS and TailwindCSS.",
@@ -182,7 +189,7 @@ export const Projects = [
     image: "/vendbite.png",
   },
   {
-    id: 2,
+    id: 3,
     name: "Basicons",
     description:
       "Modular icon package for designers, built with TypeScript and React.",
@@ -190,7 +197,7 @@ export const Projects = [
     image: "/basicons.png",
   },
   {
-    id: 3,
+    id: 4,
     name: "Airbnb Clone",
     description:
       "A simple clone of the AirBnb software system. Built with React and TailwindCSS",
@@ -198,7 +205,7 @@ export const Projects = [
     image: "/rentals.png",
   },
   {
-    id: 4,
+    id: 5,
     name: "Boston Power",
     description:
       "A business website for Boston Power energy company. Built with WordPress",
