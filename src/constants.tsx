@@ -51,6 +51,11 @@ export const PAGES: PageRoute[] = [
     pageRoute: "/projects",
     pageName: "Projects",
   },
+  {
+    pageId: 4,
+    pageRoute: "/contact",
+    pageName: "Contact",
+  },
 ];
 
 export const SOCIALS: Socials[] = [
@@ -172,7 +177,7 @@ export const timelineData = [
     date: "08/22 - Present",
     description:
       "I started my career as a freelancer, where I built websites for small businesses and individuals. I gained experience in client communication, project management, and web development.",
-    isActive: false,
+    isActive: true,
   },
 ];
 
@@ -206,9 +211,8 @@ export const Projects = [
     id: 4,
     name: "Zentry Landing Clone",
     description: "A simple copy of the Zentry Gaming website's landing page.",
-    href: 'https://zentry-gamify.vercel.app/',
-    image: "/zentry.png"
-
+    href: "https://zentry-gamify.vercel.app/",
+    image: "/zentry.png",
   },
   {
     id: 4,

@@ -10,14 +10,15 @@ const SpotifyPlayerWrapper = () => {
         <div className="flex flex-col space-y-8">
           <p>
             I love listening to music while I work. It helps me stay focused and
-            inspired. Here&apos;s some of my favorites on Spotify.
+            inspired. Here&apos;s what I'm jamming to right now.
           </p>
         </div>
         <div className="flex flex-col space-y-8">
           <iframe
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1EVHGWrwldPRtj?utm_source=generator&theme=0"
+            style={{borderRadius:'12px'}}
+            src="https://open.spotify.com/embed/track/68Dni7IE4VyPkTOH9mRWHr?utm_source=generator"
             width="100%"
-            height="400"
+            height="352"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
