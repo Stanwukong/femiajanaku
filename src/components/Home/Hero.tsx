@@ -10,7 +10,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col space-y-5 relative">
+    <div className="flex my-24 flex-col min-h-screen justify-center space-y-5 relative">
       <div className="flex items-center space-x-4 ">
         <span className="box w-[10px] h-[10px] bg-black animate-ping" />
         <p>AVAILABLE FOR WORK</p>

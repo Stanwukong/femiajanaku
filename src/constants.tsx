@@ -21,7 +21,7 @@ interface MobilePage {
 export type MobilePageRoute = {
   title: string;
   pages: MobilePage[];
-}
+};
 
 export type Socials = {
   socialId: number;
@@ -139,9 +139,10 @@ export const timelineData = [
     title: "Software Engineer",
     company: "VendBite",
     location: "Manchester, UK",
-    date: "02/24 - Present",
+    date: "02/24 - 09/24",
     description:
       "Building and maintaining the VendBite platform, a food delivery service for events and local restaurants . I work on the frontend and through collaboration with teammates have gained some insight into devOps processes.",
+    isActive: false,
   },
   {
     id: 2,
@@ -151,6 +152,7 @@ export const timelineData = [
     date: "09/23 - 02/24",
     description:
       "At Basicons, I advanced my skills in frontend development and software architecture to drive project optimization by refactoring the legacy codebase to meet modern standards.",
+    isActive: false,
   },
   {
     id: 3,
@@ -160,6 +162,7 @@ export const timelineData = [
     date: "10/22 - 12/22",
     description:
       "I joined Lykdat as an intern, where I contributed to multiple projects and developed a solid understanding of professional development and team collaboration. During this time, I gained hands-on experience with React and TypeScript, enhancing my skills in building dynamic and scalable web applications.",
+    isActive: false,
   },
   {
     id: 4,
@@ -169,16 +172,19 @@ export const timelineData = [
     date: "08/22 - Present",
     description:
       "I started my career as a freelancer, where I built websites for small businesses and individuals. I gained experience in client communication, project management, and web development.",
+    isActive: false,
   },
 ];
 
 export const Projects = [
   {
-    id: 1, 
+    id: 1,
     name: "Cloudify",
-    description: "A cloud storage service for storing and sharing files. Built with NextJS, Tailwind, and Appwrite.",
+    description:
+      "A cloud storage service for storing and sharing files. Built with NextJS, Tailwind, and Appwrite.",
+
     href: "https://cloud-storage-pearl.vercel.app/",
-    image: "/cloudup.png"
+    image: "/cloudup.png",
   },
   {
     id: 2,
@@ -195,6 +201,14 @@ export const Projects = [
       "Modular icon package for designers, built with TypeScript and React.",
     href: "https://basicons.xyz/",
     image: "/basicons.png",
+  },
+  {
+    id: 4,
+    name: "Zentry Landing Clone",
+    description: "A simple copy of the Zentry Gaming website's landing page.",
+    href: 'https://zentry-gamify.vercel.app/',
+    image: "/zentry.png"
+
   },
   {
     id: 4,
@@ -233,8 +247,7 @@ export const MOBILE_PAGES: MobilePageRoute[] = [
         pageRoute: "/projects",
         pageName: "Projects",
       },
-    ]
-
+    ],
   },
   {
     title: "INFORMATION",
@@ -243,8 +256,7 @@ export const MOBILE_PAGES: MobilePageRoute[] = [
         pageId: 1,
         pageRoute: "/resume",
         pageName: "Resume",
-      }
-    ]
-
-  }
-]
+      },
+    ],
+  },
+];

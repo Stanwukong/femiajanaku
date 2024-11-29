@@ -13,7 +13,7 @@ const Timeline = () => {
           {/* Dot */}
           <div
             className={`absolute  w-4 h-4 bg-gray-800 rounded-full ${
-              item.id == 1 && "animate-pulse"
+              item.isActive && "animate-pulse"
             }`}
           ></div>
 
@@ -24,7 +24,7 @@ const Timeline = () => {
               {item.company} • {item.location}
             </p>
             <p className="text-sm text-gray-400 mb-2">{item.date}</p>
-            <p className="text-gray-700">{item.description}</p>
+            <p className="text-black/70 text-sm md:text-base">{item.description}</p>
           </div>
         </div>
       ))}

@@ -2,17 +2,17 @@ import React from "react";
 import Link from "next/link";
 import Timeline from "./Timeline";
 
-
 const Experience = () => {
   return (
     <div className="flex flex-col my-10">
       <span className="text-4xl mb-8">Experience</span>
 
       <div className="flex flex-col space-y-8">
-        <p>
-          With over 2 years in software development, I&apos;ve developed a strong
-          foundation across front-end and back-end development, software
-          architecture, and UI/UX design.
+        <p className="text-sm md:text-base">
+          With over 2 years in software development, I&apos;ve developed a
+          strong foundation across front-end development, software
+          architecture, and UI/UX design. I am currently learning the ropes
+          of backend development.
         </p>
 
         <div>
