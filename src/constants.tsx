@@ -123,7 +123,7 @@ export const GREETINGS: Greetings[] = [
 export const STATS = [
   {
     id: 0,
-    value: 2,
+    value: 4,
     text: "years of experience",
   },
   {
