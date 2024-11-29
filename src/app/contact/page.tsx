@@ -22,7 +22,7 @@ const ContactPage = () => {
             </div>
 
             <div>
-              Let's find some time to chat! Whether about a project, a query, or
+              Let&apos;s find some time to chat! Whether about a project, a query, or
               just for a casual conversation, It&apos;s just one click away!
             </div>
           </div>
