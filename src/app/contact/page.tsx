@@ -2,9 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaCalendarDay } from "react-icons/fa";
 
-type Props = {};
-
-const ContactPage = (props: Props) => {
+const ContactPage = () => {
   return (
     <div className="flex flex-col py-16 space-y-8 items-center h-screen">
       <h1 className="text-5xl">Contact</h1>

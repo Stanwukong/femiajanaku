@@ -1,6 +1,6 @@
 import Bio from "@/components/About/Bio";
 import Experience from "@/components/About/Experience";
-import SpotifyPlayerWrapper from "@/components/Home/SpotifyPlayerWrapper";
+import SpotifyPlayerWrapper from "@/components/About/SpotifyPlayerWrapper";
 import React from "react";
 
 const AboutPage = () => {

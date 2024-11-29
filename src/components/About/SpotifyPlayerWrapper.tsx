@@ -10,7 +10,7 @@ const SpotifyPlayerWrapper = () => {
         <div className="flex flex-col space-y-8">
           <p>
             I love listening to music while I work. It helps me stay focused and
-            inspired. Here&apos;s what I'm jamming to right now.
+            inspired. Here&apos;s what I&apos;m jamming to right now.
           </p>
         </div>
         <div className="flex flex-col space-y-8">
