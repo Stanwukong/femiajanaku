@@ -192,6 +192,13 @@ export const Projects = [
     image: "/cloudup.png",
   },
   {
+    id: 4,
+    name: "Zentry Landing Clone",
+    description: "A simple copy of the Zentry Gaming website's landing page. Built with ReactJS, Tailwindcss and GSAP.", 
+    href: "https://zentry-gamify.vercel.app/",
+    image: "/zentry.png",
+  },
+  {
     id: 2,
     name: "VendBite",
     description:
@@ -207,13 +214,7 @@ export const Projects = [
     href: "https://basicons.xyz/",
     image: "/basicons.png",
   },
-  {
-    id: 4,
-    name: "Zentry Landing Clone",
-    description: "A simple copy of the Zentry Gaming website's landing page.",
-    href: "https://zentry-gamify.vercel.app/",
-    image: "/zentry.png",
-  },
+  
   {
     id: 4,
     name: "Airbnb Clone",
@@ -250,6 +251,11 @@ export const MOBILE_PAGES: MobilePageRoute[] = [
         pageId: 3,
         pageRoute: "/projects",
         pageName: "Projects",
+      },
+      {
+        pageId: 4,
+        pageRoute: "/contact",
+        pageName: "Contact",
       },
     ],
   },

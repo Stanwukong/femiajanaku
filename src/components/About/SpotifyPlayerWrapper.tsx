@@ -15,8 +15,7 @@ const SpotifyPlayerWrapper = () => {
         </div>
         <div className="flex flex-col space-y-8">
           <iframe
-            style={{borderRadius:'12px'}}
-            src="https://open.spotify.com/embed/track/68Dni7IE4VyPkTOH9mRWHr?utm_source=generator"
+            src="https://open.spotify.com/embed/track/60tuLfrlvQmAhiaFu4T5AG?utm_source=generator"
             width="100%"
             height="352"
             allowFullScreen

@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <div className="flex flex-col py-16 space-y-8 items-center h-screen">
       <h1 className="text-5xl">Contact</h1>
-      <div className="flex flex-col space-y-4 max-w-screen-md">
+      <div className="flex flex-col space-y-4 max-w-screen-md p-8 md:p-0">
         <h2 className="text-xl">Book a quick call?</h2>
         <Link
           href={"https://cal.com/femiajanaku/book"}
@@ -22,8 +22,7 @@ const ContactPage = () => {
             </div>
 
             <div>
-              Let&apos;s find some time to chat! Whether about a project, a query, or
-              just for a casual conversation, It&apos;s just one click away!
+              Click this box to book a meeting with me.
             </div>
           </div>
         </Link>
