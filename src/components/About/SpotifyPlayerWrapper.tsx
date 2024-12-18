@@ -13,12 +13,11 @@ const SpotifyPlayerWrapper = () => {
             inspired. Here&apos;s what I&apos;m jamming to right now.
           </p>
         </div>
-        <div className="flex flex-col space-y-8">
+        <div className="flex space-y-8">
           <iframe
-            src="https://open.spotify.com/embed/track/60tuLfrlvQmAhiaFu4T5AG?utm_source=generator"
+            src="https://open.spotify.com/embed/track/0GWX9HNUu2qZT16FAoBENM?utm_source=generator"
             width="100%"
-            height="352"
-            allowFullScreen
+            height="152"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           />
