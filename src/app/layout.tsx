@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,6 +26,8 @@ export default function RootLayout({
       <body className={`${montserrat.variable} font-mono bg-neutral-300`}>
         <Navbar />
         {children}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

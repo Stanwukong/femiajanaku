@@ -5,7 +5,7 @@ import { GitPullRequest, Library, Waypoints } from "lucide-react";
 
 const Services = () => {
   return (
-    <div className="flex flex-col w-full px-16 py-8 h-full space-y-8">
+    <div className="flex flex-col w-full px-8 lg:px-16 py-8 h-full space-y-8">
       <div className="flex flex-col space-y-4">
         <h2 className="text-2xl lg:text-4xl">Your Software Forge</h2>
         <p>If you can dream it, I can build it.</p>
