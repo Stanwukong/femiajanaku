@@ -13,7 +13,7 @@ type ProjectProps = {
 
 const ProjectCard = ({ title, image, description, link }: ProjectProps) => {
   return (
-    <div className="flex flex-col border border-neutral-500 bg-neutral-300 p-4 space-y-4 md:hover:scale-90">
+    <div className="flex flex-col border border-neutral-500 bg-neutral-300 p-4 space-y-4">
       <Image src={image} alt={title} width={1000} height={1000} />
       <span>
         <h2 className="text-2xl">{title}</h2>
@@ -23,7 +23,7 @@ const ProjectCard = ({ title, image, description, link }: ProjectProps) => {
       <Link
         href={link}
         passHref
-        className="w-full p-3 text-center bg-black text-white hover:bg-white hover:text-black border-black border transition-colors"
+        className="w-full p-3 text-center bg-black hover:bg-neutral-800 text-white border-black border transition-colors"
       >
         View Project
       </Link>

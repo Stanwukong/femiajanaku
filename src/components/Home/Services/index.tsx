@@ -32,7 +32,7 @@ const Services = () => {
         />
         <ServiceCard
           icon={<GitPullRequest size={40} />}
-          title={"Collaboration is Key"}
+          title={"Collaboration is Everything"}
           description={`Great software is built by great teams. I excel in fostering clear communication 
             and productive collaboration across diverse teams to align on goals and deliver exceptional result`}
           className="lg:col-span-2 "
