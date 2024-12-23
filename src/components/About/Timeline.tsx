@@ -18,7 +18,7 @@ const Timeline = () => {
           ></div>
 
           {/* Content */}
-          <div className="ml-8 p-4 bg-white w-full">
+          <div className="ml-8 p-4 bg-neutral-300 w-full">
             <h3 className="text-lg font-semibold">{item.title}</h3>
             <p className="text-gray-500 mb-1">
               {item.company} • {item.location}

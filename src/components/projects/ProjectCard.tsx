@@ -13,13 +13,13 @@ type ProjectProps = {
 
 const ProjectCard = ({ title, image, description, link }: ProjectProps) => {
   return (
-    <div className="flex flex-col border border-black bg-white p-4 space-y-4 md:hover:scale-90">
+    <div className="flex flex-col border border-neutral-500 bg-neutral-300 p-4 space-y-4 md:hover:scale-90">
       <Image src={image} alt={title} width={1000} height={1000} />
       <span>
         <h2 className="text-2xl">{title}</h2>
       </span>
 
-      <p>{description}</p>
+      <p className="text-neutral-700">{description}</p>
       <Link
         href={link}
         passHref

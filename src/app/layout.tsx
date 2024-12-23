@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} font-mono`}>
+      <body className={`${montserrat.variable} font-mono bg-neutral-300`}>
         <Navbar />
         {children}
       </body>
