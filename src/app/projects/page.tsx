@@ -5,9 +5,7 @@ import ProjectCard from "@/components/projects/ProjectCard";
 import { Projects } from "@/constants";
 import React, { useEffect, useState } from "react";
 
-type Props = {};
-
-const CarouselProjects = (props: Props) => {
+const CarouselProjects = () => {
   const [bgImageId, setBgImageId] = useState(1);
   const [bgImage, setBgImage] = useState<string>("");
 

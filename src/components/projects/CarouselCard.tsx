@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 type Props = {
   id: number;
@@ -21,7 +22,7 @@ const CarouselCard = ({
   return (
     <div
       onMouseEnter={() => onBgChange(id)}
-      className="group h-full w-full flex items-end py-8 px-4"
+      className={cn("group h-full w-full flex items-end py-8 px-4", className)}
     >
       <div className="relative space-y-4 transition-all duration-300 group-hover:-translate-y-2">
         <h3 className="text-xl lg:text-2xl">{title}</h3>
