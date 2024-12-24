@@ -15,14 +15,15 @@ const Services = () => {
           icon={<FiFigma size={40} />}
           title={"Pixel Perfect UI"}
           description={`Crafting interfaces with precision and attention to detail is my passion. I ensure every 
-            design element aligns seamlessly with the intended vision, delivering visually stunning and responsive user experiences that are consistent across devices and platforms.`}
+            design element aligns seamlessly with the intended vision, delivering visually stunning and responsive 
+            user experiences.`}
           className="lg:col-span-2 "
         />
         <ServiceCard
           icon={<Waypoints size={40} />}
           title={"Art is beautiful, Code like its art"}
-          description={`Code should be a joy to work with. I adhere to industry best practices and write modular, 
-            well-documented code to ensure scalability, maintainability, and ease of collaboration.`}
+          description={`Code should be a joy to work with. My goal is to write clean, elegant, and well-structured 
+            code that not only works seamlessly but is also a pleasure to build on and improve.`}
         />
         <ServiceCard
           icon={<Library size={40} />}
@@ -33,8 +34,8 @@ const Services = () => {
         <ServiceCard
           icon={<GitPullRequest size={40} />}
           title={"Collaboration is Everything"}
-          description={`Great software is built by great teams. I excel in fostering clear communication 
-            and productive collaboration across diverse teams to align on goals and deliver exceptional result`}
+          description={`Great software is built by great teams. I thrive on open communication and teamwork, 
+            working closely with others to solve problems, align on goals, and create solutions that make an impact.`}
           className="lg:col-span-2 "
         />
       </div>

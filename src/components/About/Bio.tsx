@@ -8,7 +8,7 @@ const Bio = () => {
       <span className="text-4xl mb-8">About Me</span>
 
       <div className="flex flex-col space-y-8">
-        <p className="text-sm md:text-base">
+        <p className="text-sm md:text-base leading-8">
           Hi there! I am{" "}
           <a
             href="https://x.com/fe_mi__"

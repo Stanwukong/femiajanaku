@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'cloudify': "url('/images/cloudup.png')",
+        'zentry': "url('/images/zentry.png')",
+        'vendbite': "url('/images/vendbite.png')",
+        'basicons': "url('/images/basicons.png')",
+      },
       animation: {
         rotate: "rotate 10s linear infinite",
       },

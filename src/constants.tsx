@@ -216,7 +216,7 @@ export const Projects = [
   },
   
   {
-    id: 4,
+    id: 5,
     name: "Airbnb Clone",
     description:
       "A simple clone of the AirBnb software system. Built with React and TailwindCSS",
@@ -224,7 +224,7 @@ export const Projects = [
     image: "/rentals.png",
   },
   {
-    id: 5,
+    id: 6,
     name: "Boston Power",
     description:
       "A business website for Boston Power energy company. Built with WordPress",
