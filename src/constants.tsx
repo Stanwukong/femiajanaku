@@ -140,6 +140,16 @@ export const STATS = [
 
 export const timelineData = [
   {
+    id: 0,
+    title: "Fullstack Developer",
+    company: "Vesti",
+    location: "Lagos, Nigeria",
+    date: "03/25 - Present",
+    description:
+      "At Vesti, I work on the frontend and backend of the platform, building features that enhance the user experience and optimize the performance of the application.",
+    isActive: true,
+  },
+  {
     id: 1,
     title: "Software Engineer",
     company: "VendBite",
@@ -177,7 +187,7 @@ export const timelineData = [
     date: "08/22 - Present",
     description:
       "I started my career as a freelancer, where I built websites for small businesses and individuals. I gained experience in client communication, project management, and web development.",
-    isActive: true,
+    isActive: false,
   },
 ];
 
@@ -194,7 +204,8 @@ export const Projects = [
   {
     id: 4,
     name: "Zentry Landing Clone",
-    description: "A simple copy of the Zentry Gaming website's landing page. Built with ReactJS, Tailwindcss and GSAP.", 
+    description:
+      "A simple copy of the Zentry Gaming website's landing page. Built with ReactJS, Tailwindcss and GSAP.",
     href: "https://zentry-gamify.vercel.app/",
     image: "/zentry.png",
   },
@@ -214,7 +225,7 @@ export const Projects = [
     href: "https://basicons.xyz/",
     image: "/basicons.png",
   },
-  
+
   {
     id: 5,
     name: "Airbnb Clone",
