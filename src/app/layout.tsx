@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} font-mono bg-neutral-300`}>
+      <body className={`${montserrat.variable} font-mono bg-neutral-300 scrollbar-hide`}>
         <Navbar />
         {children}
         <Footer />
