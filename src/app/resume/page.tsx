@@ -1,17 +1,20 @@
-import React from 'react'
+import type { Metadata } from "next";
 
-const Resume = () => {
+export const metadata: Metadata = {
+  title: "Resume",
+  description: "Femi Ajanaku's resume — Fullstack & AI Engineer.",
+};
+
+export default function ResumePage() {
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
-    <iframe
-      src="/Femi_Ajanaku_CV.pdf"
-      width="100%"
-      height="100%"
-      style={{ border: "none" }}
-      title="PDF Viewer"
-    />
-  </div>
-  )
+    <div className="w-full h-screen bg-background">
+      <iframe
+        src="/Femi_Ajanaku_CV.pdf"
+        width="100%"
+        height="100%"
+        style={{ border: "none" }}
+        title="Femi Ajanaku's Resume"
+      />
+    </div>
+  );
 }
-
-export default Resume
