@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(rm -f src/app/page.tsx src/app/about/page.tsx src/app/projects/page.tsx src/app/contact/page.tsx)",
+      "Bash(rm -rf src/app/about src/app/contact)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(mv Home home_temp)",
+      "Bash(mv home_temp home)",
+      "Bash(rm -rf .next/cache/typescript)",
+      "Bash(rm -rf node_modules/.cache)",
+      "Bash(ls -la src/app/\\\\\\(main\\\\\\)/page.tsx src/components/home/Hero.tsx src/components/home/Services.tsx src/components/home/FeaturedProjects.tsx src/components/home/CallToAction.tsx)",
+      "Bash(cmd //c \"dir /b \"\"C:\\\\Users\\\\DELL 7300\\\\Documents\\\\GitHub\\\\femiajanaku\\\\src\\\\components\"\"\")",
+      "Bash(powershell -Command \"Get-ChildItem ''C:\\\\Users\\\\DELL 7300\\\\Documents\\\\GitHub\\\\femiajanaku\\\\src\\\\components'' | Where-Object { $_Name -like ''*bout*'' } | Select-Object -ExpandProperty Name\")",
+      "Bash(mv About about_temp)",
+      "Bash(mv about_temp about)",
+      "Bash(rm -rf src/components/Home src/components/Footer src/components/projects/CarouselCard.tsx)",
+      "Bash(rm -f src/components/Navbar.tsx src/components/Logo.tsx src/components/Modal.tsx src/components/TransitionLink.tsx src/components/Wrapper.tsx src/components/Greeting.tsx src/constants.tsx)",
+      "Bash(rm -f src/components/ui/button.tsx)",
+      "Bash(ls \"src/app/\\(main\\)/projects/\")",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:apperio.dev)",
+      "WebFetch(domain:courier-app-lime.vercel.app)",
+      "WebFetch(domain:vaultly-coral.vercel.app)",
+      "Bash(npm list:*)",
+      "Bash(npm ls:*)",
+      "WebFetch(domain:www.mauryapatel.in)",
+      "WebFetch(domain:www.aitoribarra.com)",
+      "WebFetch(domain:jackwhiting.co.uk)",
+      "WebFetch(domain:rebeccamdeprey.com)"
+    ]
+  }
+}

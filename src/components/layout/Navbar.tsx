@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
 import { FemiLogo } from "@/components/ui/FemiLogo";

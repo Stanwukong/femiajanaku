@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransitions } from "next-view-transitions";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -52,31 +53,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
-      suppressHydrationWarning
-    >
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Preloader />
-          <CustomCursor />
-          <NoiseOverlay />
-          {children}
-        </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `console.log("%c Hey, curious developer! 👋", "font-size: 16px; font-weight: bold; color: #f59e0b;");console.log("%c Check out my code: https://github.com/stanwukong", "font-size: 12px; color: #666;");`,
-          }}
-        />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+        suppressHydrationWarning
+      >
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Preloader />
+            <CustomCursor />
+            <NoiseOverlay />
+            {children}
+          </ThemeProvider>
+          <Analytics />
+          <SpeedInsights />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `console.log("%c Hey, curious developer! 👋", "font-size: 16px; font-weight: bold; color: #f59e0b;");console.log("%c Check out my code: https://github.com/stanwukong", "font-size: 12px; color: #666;");`,
+            }}
+          />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

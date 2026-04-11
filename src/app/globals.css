@@ -190,3 +190,37 @@
     outline-color: hsl(var(--ring));
   }
 }
+
+/* ── View Transitions ── */
+
+/* Shared element transitions: project images and titles morph smoothly */
+::view-transition-group(*) {
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Page content crossfade */
+::view-transition-old(root) {
+  animation: vt-fade-out 200ms ease-out;
+}
+::view-transition-new(root) {
+  animation: vt-fade-in 300ms ease-in 100ms both;
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes vt-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

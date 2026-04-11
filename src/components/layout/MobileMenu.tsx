@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/data/navigation";

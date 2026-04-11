@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Container } from "@/components/ui/Container";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/data/navigation";
 import { SITE } from "@/data/site";

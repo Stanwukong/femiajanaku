@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/types";
@@ -18,7 +18,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
         "hover:shadow-lg hover:shadow-accent/5"
       )}
     >
-      <div className="relative aspect-video overflow-hidden">
+      <div
+        className="relative aspect-video overflow-hidden"
+        style={{ viewTransitionName: `project-image-${project.slug}` }}
+      >
         <Image
           src={project.image}
           alt={project.name}
@@ -29,7 +32,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
       <div className="p-5">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-lg font-display font-semibold">
+          <h2
+            className="text-lg font-display font-semibold"
+            style={{ viewTransitionName: `project-title-${project.slug}` }}
+          >
             {project.name}
           </h2>
           <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />

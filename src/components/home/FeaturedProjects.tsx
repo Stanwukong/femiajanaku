@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { FEATURED_PROJECTS } from "@/data/projects";
@@ -70,7 +70,10 @@ export function FeaturedProjects() {
               )}
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative aspect-video md:aspect-auto md:min-h-[280px] overflow-hidden">
+                <div
+                  className="relative aspect-video md:aspect-auto md:min-h-[280px] overflow-hidden"
+                  style={{ viewTransitionName: `project-image-${project.slug}` }}
+                >
                   <Image
                     src={project.image}
                     alt={project.name}
@@ -83,7 +86,10 @@ export function FeaturedProjects() {
                 <div className="p-6 md:p-8 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-display font-semibold">
+                      <h3
+                        className="text-xl font-display font-semibold"
+                        style={{ viewTransitionName: `project-title-${project.slug}` }}
+                      >
                         {project.name}
                       </h3>
                       <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />

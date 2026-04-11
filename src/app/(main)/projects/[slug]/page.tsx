@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PROJECTS } from "@/data/projects";
@@ -47,8 +47,12 @@ export default async function ProjectPage({ params }: Props) {
           All projects
         </Link>
 
-        {/* Hero image */}
-        <div className="relative aspect-video rounded-lg overflow-hidden border border-border mb-8" data-animate="entrance">
+        {/* Hero image — shared element transition from project card */}
+        <div
+          className="relative aspect-video rounded-lg overflow-hidden border border-border mb-8"
+          style={{ viewTransitionName: `project-image-${slug}` }}
+          data-animate="entrance"
+        >
           <Image
             src={project.image}
             alt={project.name}
@@ -62,7 +66,12 @@ export default async function ProjectPage({ params }: Props) {
         {/* Project info */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-animate="entrance">
           <div className="md:col-span-2">
-            <h1 className="text-h1 mb-4">{project.name}</h1>
+            <h1
+              className="text-h1 mb-4"
+              style={{ viewTransitionName: `project-title-${slug}` }}
+            >
+              {project.name}
+            </h1>
             <p className="text-muted-foreground leading-relaxed">
               {project.longDescription || project.description}
             </p>
