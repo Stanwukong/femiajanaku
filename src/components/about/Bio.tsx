@@ -82,8 +82,7 @@ export function Bio() {
               </p>
               <p>
                 Currently, I&apos;m building at Bles Software as a Fullstack Engineer,
-                leading development at Apperio as its founder, and contributing as a
-                Pursuing a Master&apos;s degree in Computer Science. I thrive at the intersection of clean code,
+                leading development at Apperio as its founder, and Pursuing a Master&apos;s degree in Computer Science. I thrive at the intersection of clean code,
                 beautiful interfaces, and smart architecture.
               </p>
             </div>
