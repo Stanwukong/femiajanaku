@@ -29,7 +29,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: "Vesti",
     location: "Lagos, Nigeria (Remote)",
     startDate: "Mar 2025",
-    endDate: "Present",
+    endDate: "Dec 2025",
     description: "Working on the frontend and backend of the platform, building features that enhance user experience and optimize application performance.",
     isActive: true,
     technologies: ["Next.js", "React", "TypeScript"],

@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { BookingCard } from "@/components/contact/BookingCard";
 import { SITE } from "@/data/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Femi Ajanaku for freelance work, collaboration, or just to say hello.",
-};
-
-export default function ContactPage() {
+export function ContactSection() {
   return (
     <section className="py-[var(--section-gap)]" data-animate="entrance">
       <Container size="md">
@@ -17,11 +11,11 @@ export default function ContactPage() {
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
             Contact
           </p>
-          <h1 className="text-h1 mb-4">
+          <h2 className="text-h1 mb-4">
             Let&apos;s build something
             <br />
             <span className="text-accent">together.</span>
-          </h1>
+          </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
             Have a project in mind? I&apos;d love to hear about it. Fill out the form
             below or book a call directly.

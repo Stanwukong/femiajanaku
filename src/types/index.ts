@@ -26,7 +26,10 @@ export interface TimelineEntry {
 }
 
 export interface NavItem {
+  /** Href used for no-JS / cross-page navigation, e.g. "/#about". */
   path: string;
+  /** DOM id of the section this item scrolls to on the single page. */
+  sectionId: string;
   label: string;
 }
 

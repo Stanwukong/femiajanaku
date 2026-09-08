@@ -39,7 +39,7 @@ export default async function ProjectPage({ params }: Props) {
       <Container size="lg">
         {/* Back link */}
         <Link
-          href="/projects"
+          href="/#projects"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8 focus-ring"
           data-animate="entrance"
         >

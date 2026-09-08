@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
+import { SectionLink } from "./SectionLink";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/data/navigation";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 
@@ -24,6 +26,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+
+  const sectionIds = useMemo(() => NAV_ITEMS.map((item) => item.sectionId), []);
+  const activeSection = useActiveSection(sectionIds);
+  const isHome = pathname === "/";
 
   // Focus trap + ESC key
   useEffect(() => {
@@ -93,22 +99,24 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
           {/* Nav Links */}
           <div className="space-y-4 mb-12">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                onClick={onClose}
-                className={cn(
-                  "menu-item block text-3xl font-display font-semibold tracking-tight transition-colors duration-200 focus-ring",
-                  pathname === item.path
-                    ? "text-accent"
-                    : "text-foreground hover:text-accent"
-                )}
-                aria-current={pathname === item.path ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive = isHome && activeSection === item.sectionId;
+              return (
+                <SectionLink
+                  key={item.sectionId}
+                  sectionId={item.sectionId}
+                  href={item.path}
+                  onClick={onClose}
+                  className={cn(
+                    "menu-item block text-3xl font-display font-semibold tracking-tight transition-colors duration-200 focus-ring",
+                    isActive ? "text-accent" : "text-foreground hover:text-accent"
+                  )}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.label}
+                </SectionLink>
+              );
+            })}
             <Link
               href="/resume"
               onClick={onClose}

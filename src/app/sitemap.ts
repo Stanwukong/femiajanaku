@@ -14,26 +14,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: SITE.url,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${SITE.url}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE.url}/projects`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 1,
     },
     ...projectRoutes,
     {
-      url: `${SITE.url}/contact`,
+      url: `${SITE.url}/resume`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 0.6,
     },
   ];

@@ -57,9 +57,9 @@ export function ProjectGrid() {
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
           All work
         </p>
-        <h1 className="text-h1 mb-12">
+        <h2 className="text-h1 mb-12">
           Projects & <span className="text-accent">experiments.</span>
-        </h1>
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PROJECTS.map((project) => (

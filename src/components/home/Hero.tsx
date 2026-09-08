@@ -73,10 +73,9 @@ export function Hero() {
         {/* Subtitle */}
         <p
           data-hero-animate
-          className="text-h3 text-muted-foreground font-normal max-w-md mx-auto"
+          className="text-h5 text-muted-foreground font-normal max-w-md mx-auto"
         >
-          Fullstack & AI Engineer
-        </p>
+          Fullstack Engineer | Lagos, Nigeria        </p>
       </Container>
 
       {/* Scroll indicator */}

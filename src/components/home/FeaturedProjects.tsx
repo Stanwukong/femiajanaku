@@ -117,7 +117,7 @@ export function FeaturedProjects() {
 
         <div className="mt-12 text-center">
           <Link
-            href="/projects"
+            href="/#projects"
             className="inline-flex items-center gap-2 text-sm font-medium hover:text-accent transition-colors duration-200 focus-ring"
           >
             View all projects

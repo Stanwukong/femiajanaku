@@ -1,5 +1,5 @@
-import { Link } from "next-view-transitions";
 import { Container } from "@/components/ui/Container";
+import { SectionLink } from "@/components/layout/SectionLink";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/data/navigation";
 import { SITE } from "@/data/site";
 
@@ -43,13 +43,14 @@ export function Footer() {
             </p>
             <div className="space-y-2">
               {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.path}
+                <SectionLink
+                  key={item.sectionId}
+                  sectionId={item.sectionId}
                   href={item.path}
                   className="block text-sm text-foreground hover:text-accent transition-colors duration-200"
                 >
                   {item.label}
-                </Link>
+                </SectionLink>
               ))}
             </div>
           </div>

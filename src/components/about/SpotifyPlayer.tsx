@@ -2,7 +2,10 @@ import { Container } from "@/components/ui/Container";
 
 export function SpotifyPlayer() {
   return (
-    <section className="py-[var(--section-gap)] bg-muted/30" data-animate="entrance">
+    <section
+      className="py-[var(--section-gap)] bg-muted/30"
+      data-animate="entrance"
+    >
       <Container size="sm" className="text-center">
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
           Vibes
@@ -11,14 +14,16 @@ export function SpotifyPlayer() {
           What I&apos;m <span className="text-accent">listening to.</span>
         </h2>
         <iframe
-          src="https://open.spotify.com/embed/track/4bmBNNBQEW95yZqj2MXmRu?utm_source=generator"
+          data-testid="embed-iframe"
+          style={{ borderRadius: "12px" }}
+          src="https://open.spotify.com/embed/track/7AzlLxHn24DxjgQX73F9fU?utm_source=generator&si=93e3a233876d4b49"
           width="100%"
-          height="152"
+          height="352"
+          frameBorder="0"
+          allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-          className="rounded-xl"
-          title="Spotify player"
-        />
+        ></iframe>
       </Container>
     </section>
   );

@@ -69,11 +69,11 @@ export function Bio() {
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4" data-bio-animate>
               About me
             </p>
-            <h1 className="text-h2 mb-6" data-bio-animate>
+            <h2 className="text-h2 mb-6" data-bio-animate>
               Building the future,
               <br />
               <span className="text-accent">one line at a time.</span>
-            </h1>
+            </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed" data-bio-animate>
               <p>
                 I&apos;m Femi Ajanaku, a fullstack & AI engineer based in Lagos, Nigeria.
@@ -81,9 +81,9 @@ export function Bio() {
                 intelligent systems that solve real problems.
               </p>
               <p>
-                Currently, I&apos;m building at Bles Software as a Fullstack & AI Engineer,
+                Currently, I&apos;m building at Bles Software as a Fullstack Engineer,
                 leading development at Apperio as its founder, and contributing as a
-                Software Engineer at Vesti. I thrive at the intersection of clean code,
+                Pursuing a Master&apos;s degree in Computer Science. I thrive at the intersection of clean code,
                 beautiful interfaces, and smart architecture.
               </p>
             </div>

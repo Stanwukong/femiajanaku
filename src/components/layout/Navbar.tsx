@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { Link } from "next-view-transitions";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
 import { FemiLogo } from "@/components/ui/FemiLogo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MagneticWrapper } from "@/components/ui/MagneticWrapper";
 import { MobileMenu } from "./MobileMenu";
+import { SectionLink } from "./SectionLink";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/data/navigation";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -23,6 +24,12 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const sectionIds = useMemo(() => NAV_ITEMS.map((item) => item.sectionId), []);
+  const activeSection = useActiveSection(sectionIds);
+
+  // Section anchors only resolve on the single home page
+  const isHome = pathname === "/";
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY;
@@ -58,26 +65,34 @@ export function Navbar() {
           >
             {/* Desktop Nav Links */}
             <div className="hidden md:flex items-center gap-8">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className="nav-link text-sm font-medium tracking-wide uppercase focus-ring"
-                  aria-current={pathname === item.path ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const isActive = isHome && activeSection === item.sectionId;
+                return (
+                  <SectionLink
+                    key={item.sectionId}
+                    sectionId={item.sectionId}
+                    href={item.path}
+                    className={cn(
+                      "nav-link text-sm font-medium tracking-wide uppercase focus-ring",
+                      isActive && "text-accent"
+                    )}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.label}
+                  </SectionLink>
+                );
+              })}
             </div>
 
             {/* Logo (center on desktop, left on mobile) */}
-            <Link
+            <SectionLink
+              sectionId="home"
               href="/"
               className="md:absolute md:left-1/2 md:-translate-x-1/2 focus-ring"
               aria-label="Home"
             >
               <FemiLogo size="sm" interactive className="text-foreground" />
-            </Link>
+            </SectionLink>
 
             {/* Desktop Right: Theme + Socials */}
             <div className="hidden md:flex items-center gap-3">
