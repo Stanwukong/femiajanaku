@@ -22,14 +22,14 @@ const CAPABILITIES: Capability[] = [
     id: "ai",
     title: "AI Systems & Agents",
     summary:
-      "I build RAG pipelines, tool-using agents, and MCP servers that actually get things done. The goal is simple: retrieve the right information, use the right tools, and know when there’s nothing left to do.",
-    stack: ["OpenAI", "Anthropic", "LangGraph", "pgvector"],
+      "I build RAG pipelines, tool-using agents, and MCP servers that actually get things done.",
+    stack: ["OpenAI", "Anthropic", "LangGraph", "pgvector", "n8n"],
   },
   {
     id: "product",
     title: "Product Engineering, 0→1",
     summary:
-      "I build products end to end, from the frontend to the backend and the infrastructure running underneath it. TypeScript, Node, FastAPI, whatever fits the job. The goal is to ship something that works without creating a 2am problem.",
+      "I build products end to end, from the frontend to the backend and the infrastructure running underneath it. TypeScript, Node, FastAPI, whatever fits the job.",
     stack: ["Next.js", "FastAPI", "PostgreSQL", "AWS"],
   },
   {
@@ -37,7 +37,7 @@ const CAPABILITIES: Capability[] = [
     title: "Motion & Performance",
     summary:
       "I build interfaces that feel good to use without sacrificing performance. Motion has a purpose, and I make sure it still feels smooth on the hardware people actually use.",
-    stack: ["GSAP", "Lenis", "Core Web Vitals", "A11y"],
+    stack: ["GSAP", "Framer motion", "Core Web Vitals", "A11y", "Apperio"],
   },
   {
     id: "trading",

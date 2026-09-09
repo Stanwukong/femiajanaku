@@ -85,7 +85,7 @@ export const SKILL_CATEGORIES = [
 ] as const;
 
 export const STATS = [
-  { label: "Years of experience", value: 5, suffix: "+" },
-  { label: "Projects completed", value: 40, suffix: "+" },
+  { label: "Years of experience", value: 4, suffix: "+" },
+  { label: "Projects completed", value: 28, suffix: "+" },
   { label: "GitHub stars", value: 60, suffix: "+" },
 ];

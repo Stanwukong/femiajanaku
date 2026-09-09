@@ -81,8 +81,9 @@ export function Bio() {
                 intelligent systems that solve real problems.
               </p>
               <p>
-                Currently, I&apos;m building at Bles Software as a Fullstack Engineer,
-                leading development at Apperio as its founder, and Pursuing a Master&apos;s degree in Computer Science. I thrive at the intersection of clean code,
+                Currently, I&apos;m building at <span className="font-semibold border px-2 hover:text-accent"><a href="https://www.bles-software.com/">Bles</a></span> as a Fullstack Engineer,
+                leading development at <span className="font-semibold border px-2 hover:text-accent"><a href="https://apperio.dev/">Apperio</a></span> as its founder, and pursuing a degree at{" "}
+                <span className="font-semibold border px-2 hover:text-accent"><a href="https://mit.miva.university/">Miva</a></span>. I thrive at the intersection of clean code,
                 beautiful interfaces, and smart architecture.
               </p>
             </div>

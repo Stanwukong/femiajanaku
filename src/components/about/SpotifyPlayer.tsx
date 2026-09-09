@@ -15,12 +15,11 @@ export function SpotifyPlayer() {
         </h2>
         <iframe
           data-testid="embed-iframe"
-          style={{ borderRadius: "12px" }}
-          src="https://open.spotify.com/embed/track/7AzlLxHn24DxjgQX73F9fU?utm_source=generator&si=93e3a233876d4b49"
+          style={{ "borderRadius": "12px" }}
+          src="https://open.spotify.com/embed/track/6ieWL5CLN9WdC875guWtMe?utm_source=generator&si=197cc85136dc430e"
           width="100%"
           height="352"
           frameBorder="0"
-          allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
