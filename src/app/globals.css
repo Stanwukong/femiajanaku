@@ -224,3 +224,27 @@
     animation: none !important;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/*  Data-visualisation tokens                                          */
+/*  Validated for CVD separation and >=3:1 contrast against the card    */
+/*  surface in BOTH modes — do not hand-tune without re-validating.     */
+/*  balance/drawdown sit in the 6-8 CVD band in dark mode, which is     */
+/*  carried by secondary encoding: they render in separate panels, each */
+/*  with its own heading and axis.                                      */
+/* ------------------------------------------------------------------ */
+@layer base {
+  :root {
+    --viz-balance: #b87503;
+    --viz-drawdown: #a93226;
+    --viz-grid: hsl(40 10% 85%);
+    --viz-baseline: hsl(0 0% 40%);
+  }
+
+  .dark {
+    --viz-balance: #c98500;
+    --viz-drawdown: #e34948;
+    --viz-grid: hsl(0 0% 20%);
+    --viz-baseline: hsl(0 0% 60%);
+  }
+}
