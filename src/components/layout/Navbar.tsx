@@ -52,10 +52,15 @@ export function Navbar() {
       <a href="#main-content" className="skip-to-content">
         Skip to content
       </a>
+      {/*
+        Sits above the mobile menu overlay (z-50): the hamburger doubles as the
+        menu's only close button, so it has to stay visible and clickable while
+        the sheet is open. The auto-hide is suspended for the same reason.
+      */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-transform duration-300",
-          isVisible ? "translate-y-0" : "-translate-y-full"
+          "fixed top-0 left-0 right-0 z-[60] transition-transform duration-300",
+          isVisible || isMenuOpen ? "translate-y-0" : "-translate-y-full"
         )}
       >
         <div className="bg-background/80 backdrop-blur-md border-b border-border/50">

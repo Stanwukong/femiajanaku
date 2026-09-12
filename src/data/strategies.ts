@@ -109,8 +109,8 @@ export const STRATEGIES: Strategy[] = [
     name: "CME Gap-Fill v4.4.1",
     platform: "TradingView",
     language: "Pine Script",
-    // TODO(femi): confirm the chart symbol and timeframe this was tested on.
-    symbol: "BTC",
+    // TODO(femi): confirm the chart timeframe this was tested on.
+    symbol: "BTC futures",
     timeframe: "—",
     tagline:
       "Fades CME Bitcoin futures session gaps — waits for price to re-enter the gap before entering, then rides the fill on a trailing stop.",
@@ -130,9 +130,8 @@ export const STRATEGIES: Strategy[] = [
       { label: "Costs modelled", value: "0.04% commission per trade and 5 ticks of slippage" },
       { label: "Sizing", value: "Fixed 1 unit per trade — position size does not compound" },
     ],
-    // TODO(femi): point at the published TradingView script once it is public.
-    sourceUrl: "",
-    sourceLabel: "View on TradingView",
+    sourceUrl: `${SOURCE_REPO}/blob/main/tradingview/CME-Gap.pine`,
+    sourceLabel: "CME-Gap.pine",
     metrics: {
       netProfitPct: 93.2,
       profitFactor: 3.3,
