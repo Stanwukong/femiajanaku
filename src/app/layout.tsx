@@ -7,6 +7,7 @@ import { spaceGrotesk, inter, jetbrainsMono } from "@/lib/fonts";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Preloader } from "@/components/layout/Preloader";
+import { ApperioProvider } from "@/components/layout/ApperioProvider";
 import { SITE } from "@/data/site";
 import "./globals.css";
 
@@ -73,6 +74,7 @@ export default function RootLayout({
           </ThemeProvider>
           <Analytics />
           <SpeedInsights />
+          <ApperioProvider />
           <script
             dangerouslySetInnerHTML={{
               __html: `console.log("%c Hey, curious developer! 👋", "font-size: 16px; font-weight: bold; color: #f59e0b;");console.log("%c Check out my code: https://github.com/stanwukong", "font-size: 12px; color: #666;");`,
