@@ -15,8 +15,8 @@ export function SpotifyPlayer() {
         </h2>
         <iframe
           data-testid="embed-iframe"
-          style={{ "borderRadius": "12px" }}
-          src="https://open.spotify.com/embed/track/6ieWL5CLN9WdC875guWtMe?utm_source=generator&si=197cc85136dc430e"
+          style={{ borderRadius: "12px" }}
+          src="https://open.spotify.com/embed/track/2dJkI8vIXC1rpEHADdw6KK?utm_source=generator&si=a798db1f48a64c59"
           width="100%"
           height="352"
           frameBorder="0"
