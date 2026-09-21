@@ -9,7 +9,7 @@ function Sparkline({ values }: { values: number[] }) {
     return (
       <div className="flex h-16 items-center justify-center rounded-md border border-dashed border-border">
         <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          OPEN FOR SCREENSHOTS
+          OPEN FOR DETAILS
         </span>
       </div>
     );
