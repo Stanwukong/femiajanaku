@@ -16,10 +16,11 @@ export function SpotifyPlayer() {
         <iframe
           data-testid="embed-iframe"
           style={{ borderRadius: "12px" }}
-          src="https://open.spotify.com/embed/track/2dJkI8vIXC1rpEHADdw6KK?utm_source=generator&si=a798db1f48a64c59"
+          src="https://open.spotify.com/embed/track/1qt1MqjmSLTWwjhn46uDUn?utm_source=generator&si=66bcf34c13c2407f"
           width="100%"
           height="352"
           frameBorder="0"
+          allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
