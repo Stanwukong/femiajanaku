@@ -3,12 +3,15 @@ import type { NavItem, SocialLink } from "@/types";
 /**
  * The site is a single page — every nav item points at a section anchor on `/`.
  * `sectionId` is the DOM id used for smooth scrolling and scroll-spy.
+ *
+ * #trading is left out on purpose so it doesn't read as a headline focus for
+ * general engineering roles. Add it back for fintech / quant applications:
+ *   { path: "/#trading", sectionId: "trading", label: "Trading" },
  */
 export const NAV_ITEMS: NavItem[] = [
   { path: "/", sectionId: "home", label: "Home" },
   { path: "/#about", sectionId: "about", label: "About" },
   { path: "/#projects", sectionId: "projects", label: "Projects" },
-  { path: "/#trading", sectionId: "trading", label: "Trading" },
   { path: "/#contact", sectionId: "contact", label: "Contact" },
 ];
 

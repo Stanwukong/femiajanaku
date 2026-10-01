@@ -23,7 +23,7 @@ export function SpotifyPlayer() {
           allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-        ></iframe>
+        />
       </Container>
     </section>
   );

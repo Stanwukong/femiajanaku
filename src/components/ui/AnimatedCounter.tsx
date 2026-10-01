@@ -20,20 +20,23 @@ export function AnimatedCounter({
   className,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [displayValue, setDisplayValue] = useState(0);
+  // Start from the real value so server HTML, link previews and slow devices
+  // show the number, not "0". The count-up is layered on after mount.
+  const [displayValue, setDisplayValue] = useState(value);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
     if (!ref.current || hasAnimated.current) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplayValue(value);
-      hasAnimated.current = true;
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const trigger = ref.current;
+
+    // Already past the trigger point (e.g. landed on a lower anchor): keep the
+    // real value rather than flashing to zero.
+    if (trigger.getBoundingClientRect().top < window.innerHeight * 0.85) return;
+
     const obj = { val: 0 };
+    setDisplayValue(0);
 
     ScrollTrigger.create({
       trigger,

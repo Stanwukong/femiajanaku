@@ -31,6 +31,13 @@ export function getLogger(): Apperio | null {
       consoleMessages: false,
       userInteractions: false,
     },
+    // Session replay. Inputs (the contact form) are masked by default;
+    // wrap anything else private in .apperio-mask. sampleRate 1 records
+    // every session; lower it once testing is done.
+    replay: {
+      enabled: true,
+      sampleRate: 1,
+    },
   });
 
   return logger;

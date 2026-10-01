@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { ProjectCover } from "@/components/projects/ProjectCover";
 import { FEATURED_PROJECTS } from "@/data/projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -74,13 +75,17 @@ export function FeaturedProjects() {
                   className="relative aspect-video md:aspect-auto md:min-h-[280px] overflow-hidden"
                   style={{ viewTransitionName: `project-image-${project.slug}` }}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  ) : (
+                    <ProjectCover project={project} />
+                  )}
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col justify-between">

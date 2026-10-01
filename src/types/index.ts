@@ -4,13 +4,31 @@ export interface Project {
   name: string;
   description: string;
   longDescription?: string;
-  url: string;
-  image: string;
+  /** Omitted for client work with no public link. */
+  url?: string;
+  /** Omitted when there is no screenshot we're allowed to show; a typographic cover is drawn instead. */
+  image?: string;
   tags: string[];
   stack: string[];
   role: string;
   year: number;
   featured?: boolean;
+  caseStudy?: CaseStudy;
+}
+
+/**
+ * Written write-up for client work that can't be demoed. No client names,
+ * client code, or product screenshots go in here — only what I built and how.
+ */
+export interface CaseStudy {
+  /** Where the work happened, e.g. "Client work · Bles Software". */
+  context: string;
+  /** What I owned, one clause each. */
+  contributions: string[];
+  problem?: string;
+  /** The hard calls and why they went the way they did. */
+  decisions?: { title: string; body: string }[];
+  outcome?: string;
 }
 
 export interface TimelineEntry {

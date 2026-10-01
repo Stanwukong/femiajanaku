@@ -59,15 +59,17 @@ export function StrategyGrid({ strategies }: { strategies: StrategyCardData[] })
     <section ref={sectionRef} className="py-[var(--section-gap)]" data-animate="entrance">
       <Container size="lg">
         <p className="mb-4 text-xs uppercase tracking-widest text-muted-foreground">
-          Algorithmic trading
+          Trading systems
         </p>
         <h2 className="text-h1 mb-4">
           Strategies & <span className="text-accent">backtests.</span>
         </h2>
         <p className="mb-12 max-w-2xl text-muted-foreground">
-          Automated systems I have written, tested, and published the source for. Every
-          strategy below links to its full code, its equity curve, and the trade-by-trade
-          journal behind the numbers — results are historical backtests, not live returns.
+          Automated trading systems I have designed, tested, and published the source
+          for: signal logic, risk management, and execution, with a parser that turns
+          raw platform reports into the equity curves and trade journals below. Each
+          one links to its source code and full backtest results. Results are
+          historical backtests, not live returns.
         </p>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

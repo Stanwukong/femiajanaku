@@ -79,9 +79,9 @@ export const SKILL_CATEGORIES = [
   { key: "backend", label: "Backend" },
   { key: "databases", label: "Databases" },
   { key: "devops", label: "Cloud & DevOps" },
-  { key: "trading", label: "Algorithmic Trading" },
   { key: "testing", label: "Testing & Practices" },
   { key: "languages", label: "Languages" },
+  { key: "trading", label: "Algorithmic Trading" },
 ] as const;
 
 export const STATS = [

@@ -41,9 +41,9 @@ const CAPABILITIES: Capability[] = [
   },
   {
     id: "trading",
-    title: "Algorithmic Trading",
+    title: "Trading Systems",
     summary:
-      "I build and test trading strategies from the logic behind the idea to backtesting and live execution. The focus is on signals that still make sense on data they haven’t seen before, not just strategies that look good on a chart.",
+      "I build automated trading systems end to end: signal logic, risk management and live execution, plus the tooling that parses raw backtest reports into equity curves and trade journals. The test is whether a signal still holds on data it hasn’t seen, not whether it looks good on a chart.",
     stack: ["MQL5", "Pine Script", "pandas", "Backtesting"],
   },
 ];

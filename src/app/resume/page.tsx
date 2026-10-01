@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -9,7 +10,7 @@ export default function ResumePage() {
   return (
     <div className="w-full h-screen bg-background">
       <iframe
-        src="/Femi_Ajanaku_CV.pdf"
+        src={SITE.cvPath}
         width="100%"
         height="100%"
         style={{ border: "none" }}

@@ -1,3 +1,4 @@
+import { FileText } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { BookingCard } from "@/components/contact/BookingCard";
@@ -12,13 +13,13 @@ export function ContactSection() {
             Contact
           </p>
           <h2 className="text-h1 mb-4">
-            Let&apos;s build something
+            Hiring?
             <br />
-            <span className="text-accent">together.</span>
+            <span className="text-accent">Let&apos;s talk.</span>
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Have a project in mind? I&apos;d love to hear about it. Fill out the form
-            below or book a call directly.
+            I&apos;m looking for a full-time fullstack or AI engineering role, remote
+            or in Lagos. Send a note about the role, book a call, or grab my CV below.
           </p>
         </div>
 
@@ -26,6 +27,18 @@ export function ContactSection() {
           <ContactForm />
           <div className="space-y-6">
             <BookingCard />
+            <a
+              href={SITE.cvPath}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-6 rounded-lg border border-border bg-card hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 focus-ring group"
+            >
+              <FileText className="w-6 h-6 text-accent mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="font-display font-semibold mb-1">View my CV</h3>
+              <p className="text-sm text-muted-foreground">
+                Experience, stack and education on one page (PDF).
+              </p>
+            </a>
             <div className="p-6 rounded-lg border border-border bg-card">
               <h3 className="font-display font-semibold mb-2">Direct email</h3>
               <a

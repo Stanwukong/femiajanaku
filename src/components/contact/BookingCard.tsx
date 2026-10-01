@@ -12,7 +12,7 @@ export function BookingCard() {
       <Calendar className="w-6 h-6 text-accent mb-3 group-hover:scale-110 transition-transform duration-300" />
       <h3 className="font-display font-semibold mb-1">Book a call</h3>
       <p className="text-sm text-muted-foreground">
-        Schedule a 30-minute chat to discuss your project.
+        Schedule a 30-minute intro call about a role or project.
       </p>
     </a>
   );

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { SITE } from "@/data/site";
 import gsap from "gsap";
 
 export function Hero() {
@@ -59,7 +60,7 @@ export function Hero() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
           </span>
           <span className="text-xs font-medium tracking-wide uppercase text-muted-foreground">
-            Open to contracts
+            Open to full-time roles
           </span>
         </div>
 
@@ -75,7 +76,8 @@ export function Hero() {
           data-hero-animate
           className="text-h5 text-muted-foreground font-normal max-w-md mx-auto"
         >
-          Fullstack Engineer | Lagos, Nigeria        </p>
+          {SITE.title} | Lagos, Nigeria
+        </p>
       </Container>
 
       {/* Scroll indicator */}

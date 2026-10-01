@@ -84,9 +84,9 @@ export function ContactForm() {
           )}
         >
           <option value="">Select a topic</option>
-          <option value="freelance">Freelance project</option>
+          <option value="job">Full-time role</option>
+          <option value="freelance">Contract or freelance</option>
           <option value="collaboration">Collaboration</option>
-          <option value="job">Job opportunity</option>
           <option value="other">Other</option>
         </select>
       </div>
@@ -106,7 +106,7 @@ export function ContactForm() {
             "focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent",
             "transition-colors duration-200"
           )}
-          placeholder="Tell me about your project..."
+          placeholder="Tell me about the role or project..."
         />
       </div>
 

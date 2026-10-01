@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { ArrowUpRight } from "lucide-react";
+import { ProjectCover } from "@/components/projects/ProjectCover";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/types";
 
@@ -22,13 +23,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
         className="relative aspect-video overflow-hidden"
         style={{ viewTransitionName: `project-image-${project.slug}` }}
       >
-        <Image
-          src={project.image}
-          alt={project.name}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        ) : (
+          <ProjectCover project={project} />
+        )}
       </div>
       <div className="p-5">
         <div className="flex items-center justify-between mb-2">

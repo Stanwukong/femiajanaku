@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { ProjectCover } from "@/components/projects/ProjectCover";
 import { PROJECTS } from "@/data/projects";
 
 interface Props {
@@ -30,6 +31,7 @@ export default async function ProjectPage({ params }: Props) {
   const project = PROJECTS.find((p) => p.slug === slug);
   if (!project) notFound();
 
+  const { caseStudy } = project;
   const currentIndex = PROJECTS.findIndex((p) => p.slug === slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
   const prevProject = PROJECTS[(currentIndex - 1 + PROJECTS.length) % PROJECTS.length];
@@ -53,14 +55,18 @@ export default async function ProjectPage({ params }: Props) {
           style={{ viewTransitionName: `project-image-${slug}` }}
           data-animate="entrance"
         >
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.name}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          ) : (
+            <ProjectCover project={project} />
+          )}
         </div>
 
         {/* Project info */}
@@ -78,6 +84,12 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           <div className="space-y-6">
+            {caseStudy && (
+              <div>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Context</p>
+                <p className="text-sm font-medium">{caseStudy.context}</p>
+              </div>
+            )}
             <div>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Role</p>
               <p className="text-sm font-medium">{project.role}</p>
@@ -96,17 +108,85 @@ export default async function ProjectPage({ params }: Props) {
                 ))}
               </div>
             </div>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors duration-200 focus-ring"
-            >
-              Visit site
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            {project.url ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors duration-200 focus-ring"
+              >
+                Visit site
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            ) : (
+              caseStudy && (
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  The code and product belong to the client, so this is a write-up
+                  rather than a demo. I&apos;m happy to walk through the architecture
+                  on a call.
+                </p>
+              )
+            )}
           </div>
         </div>
+
+        {/* Case study write-up — client work with no public demo */}
+        {caseStudy && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-animate="entrance">
+            <div className="md:col-span-2 space-y-10">
+              {caseStudy.problem && (
+                <section>
+                  <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                    The problem
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed">{caseStudy.problem}</p>
+                </section>
+              )}
+
+              <section>
+                <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                  What I built
+                </h2>
+                <ul className="space-y-2">
+                  {caseStudy.contributions.map((item) => (
+                    <li key={item} className="flex gap-3 text-muted-foreground leading-relaxed">
+                      <span
+                        className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                        aria-hidden="true"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {caseStudy.decisions && caseStudy.decisions.length > 0 && (
+                <section>
+                  <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                    Key decisions
+                  </h2>
+                  <div className="space-y-6">
+                    {caseStudy.decisions.map((decision) => (
+                      <div key={decision.title}>
+                        <h3 className="font-display font-semibold mb-1">{decision.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{decision.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {caseStudy.outcome && (
+                <section>
+                  <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                    Outcome
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed">{caseStudy.outcome}</p>
+                </section>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Navigation */}
         <div className="flex items-center justify-between pt-8 border-t border-border" data-animate="entrance">

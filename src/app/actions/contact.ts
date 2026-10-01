@@ -24,9 +24,9 @@ export async function sendContactEmail(
   }
 
   const subjectMap: Record<string, string> = {
-    freelance: "Freelance Project",
+    job: "Full-time Role",
+    freelance: "Contract / Freelance",
     collaboration: "Collaboration",
-    job: "Job Opportunity",
     other: "Other",
   };
 
@@ -59,7 +59,7 @@ export async function sendContactEmail(
             <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
           </div>
           <p style="color: #9ca3af; font-size: 12px; margin-top: 24px;">
-            Sent from femiajanaku.vercel.app
+            Sent from ${new URL(SITE.url).host}
           </p>
         </div>
       `,
