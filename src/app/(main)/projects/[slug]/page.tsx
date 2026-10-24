@@ -119,7 +119,7 @@ export default async function ProjectPage({ params }: Props) {
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             ) : (
-              caseStudy && (
+              caseStudy?.context.startsWith("Client work") && (
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   The code and product belong to the client, so this is a write-up
                   rather than a demo. I&apos;m happy to walk through the architecture

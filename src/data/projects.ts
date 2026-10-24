@@ -30,6 +30,53 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    id: "footballseer",
+    slug: "footballseer",
+    name: "FootballSeer",
+    description: "Sports prediction platform that prices every football and basketball market from its own models, with an open track record.",
+    longDescription: "FootballSeer prices around 285 football matches a day across 38 leagues, plus basketball across seven (NBA, WNBA, NCAA, G League, NBL, EuroLeague and EuroCup). A Python pipeline refits the models every day and exports JSON; a Next.js front end turns it into 480+ static pages: a match board for every market, value bets, a screener, a bet generator, a matchup predictor, written previews, live scores and a public track record that compares the model with the bookmakers. It runs end to end on GitHub Actions and Vercel for about $0 a month.",
+    url: "https://see-ball.vercel.app",
+    image: "/footballseer.png",
+    tags: ["Machine Learning", "Sports Analytics", "Data"],
+    stack: ["Python", "NumPy", "SciPy", "pandas", "Next.js", "TypeScript", "Tailwind CSS", "GitHub Actions", "Vercel"],
+    role: "Creator & Engineer",
+    year: 2026,
+    featured: true,
+    caseStudy: {
+      context: "Personal project · live product",
+      problem:
+        "Most prediction sites sell tips without ever showing how they did. I wanted one model that prices every market consistently, publishes each prediction before kick-off, and keeps a record anyone can check.",
+      contributions: [
+        "Built the Python pipeline: results and bookmaker odds from football-data.co.uk (with a Wayback Machine fallback), one Dixon-Coles model per league refitted daily, and every market derived from a single scoreline probability table",
+        "Added a basketball model, a time-weighted ridge regression on points with per-league decay and shrinkage, pricing moneyline, spread, totals, halves and quarters from ESPN and EuroLeague feeds",
+        "Wrote a walk-forward backtest and a prediction ledger committed to git before kick-off, so the track record is auditable",
+        "Built the Next.js front end: 480+ statically generated pages, filters, value bets, bet generator, matchup predictor, previews and live scores",
+        "Automated the whole loop: GitHub Actions refreshes the data twice a day, commits it, and the push redeploys on Vercel",
+        "Designed the brand mark and a guided first-visit tour that walks new users through the product",
+      ],
+      decisions: [
+        {
+          title: "One scoreline table behind every market",
+          body: "Every market (1X2, goals lines, both teams to score, correct score) is read off the same matrix of scoreline probabilities, so prices can never contradict each other. A new market is a few lines of code, not a new model.",
+        },
+        {
+          title: "Static by default, serverless only for live data",
+          body: "Every page is prerendered from committed JSON and served from the CDN. Live scores go through a small serverless proxy with 15–20 second caching, so however many people are watching, the upstream API sees a few requests a minute. Hosting costs about nothing.",
+        },
+        {
+          title: "Publish the record, including the bad parts",
+          body: "The track record sets the model against bookmaker prices. The model is well calibrated, but it doesn't beat the bookmakers yet, and the site says so rather than hiding it. That honesty is the product.",
+        },
+        {
+          title: "Tracking down a build that never finished",
+          body: "After adding basketball, production builds froze partway through static generation. I bisected the 481 pages down to a single game page, then to one sentence of its preview, and traced it to Next.js's experimental partial prefetching. Turning that off fixed the build without changing what users see.",
+        },
+      ],
+      outcome:
+        "Backtested on 14,205 football matches (August 2025 to October 2026) and 9,567 basketball games. When the model rates a home win at 70% or more, it happens 81% of the time across 430 matches; basketball favourites rated 70% or more win 83% of 3,575 games. Against the market it still trails (log loss 1.026 against the bookmakers' 1.006, and backtested value bets lose 13%), so the next step is richer inputs: expected goals, lineups and injuries.",
+    },
+  },
+  {
     id: "cerebro",
     slug: "cerebro",
     name: "Cerebro",
