@@ -5,15 +5,48 @@ export const PROJECTS: Project[] = [
     id: "apperio",
     slug: "apperio",
     name: "Apperio",
-    description: "Production-ready logging and monitoring SaaS processing 500K+ events/month.",
-    longDescription: "Apperio (formerly LogHive) is a developer-first logging and monitoring platform built from the ground up. Features real-time log streaming, a custom query builder with 10+ operators, configurable alerting rules, and sub-200ms query response across 5M+ documents. Deployed on AWS EC2 with 99.9% uptime, serving 50+ beta users with JWT auth and RBAC.",
-    url: "https://apperio.dev",
+    description: "Error tracking and monitoring that ties every bug to the commit and deploy that caused it, explained in plain English.",
+    longDescription: "Apperio (formerly LogHive) watches a web app from the browser and from its GitHub repo at the same time. A one-line SDK captures errors, network calls, clicks, page views, console output, Web Vitals and session replays; a GitHub App records every commit and deploy. When something breaks, Apperio groups the error, points to the change that most likely caused it, explains it in plain English and drafts the GitHub issue. Built end to end by me: SDK, API, dashboard, docs and marketing site. Out of beta with open signup since October 2026.",
+    url: "https://www.apperio.dev",
     image: "/apperio.png",
-    tags: ["SaaS", "DevTools", "Monitoring"],
-    stack: ["Node.js", "Express", "MongoDB", "React", "Next.js", "Docker", "AWS"],
+    tags: ["SaaS", "DevTools", "Monitoring", "AI"],
+    stack: ["TypeScript", "Node.js", "Express", "MongoDB", "WebSockets", "Next.js", "React", "Tailwind CSS", "Claude API", "GitHub Apps", "Render", "Vercel"],
     role: "Founder & Lead Engineer",
     year: 2025,
     featured: true,
+    caseStudy: {
+      context: "Founder project · live product",
+      problem:
+        "Small teams and solo builders, more and more of them shipping AI-written code, usually hear about a broken release from their users. Monitoring tools hand them a stack trace, but not the answer they actually need: which change did this, and what do I do about it. I wanted a tool that connects the error in the browser to the commit and the deploy behind it, and says so in words a non-specialist can act on.",
+      contributions: [
+        "Built the TypeScript SDK, published on npm as apperio (now 1.5.2): auto-capture of errors, network calls, clicks, page views, console output and Web Vitals, batching with exponential backoff, and personal data redacted in the browser before anything is sent",
+        "Added session replay on rrweb, loaded through a dynamic import only when a project turns it on, so sites that don't use it never download it",
+        "Built the Express and MongoDB API: log ingestion, error fingerprinting and grouping, alert rules to email, Slack, webhooks and GitHub, and a WebSocket feed for the live log stream",
+        "Built change intelligence: a GitHub App that receives signed push webhooks, AI summaries of each commit, a deploy API that marks every release and gives it a verdict by comparing error rates before and after, and a suspect commit on every new error group",
+        "Closed the loop with GitHub issues: one click drafts the issue with the AI explanation and the suspect commit, and closing it on GitHub resolves the error in Apperio",
+        "Built the Next.js dashboard (77 pages across logs, errors, issues, changes, performance, sessions, alerts, teams and billing), the landing page and the docs, with every docs code sample type checked against the published SDK",
+      ],
+      decisions: [
+        {
+          title: "Point at the change, not just the stack trace",
+          body: "In July 2026 I moved Apperio from general purpose logging to change awareness. Every error is now read against the commits and deploys around it, because for a small team 'what changed?' is the first question and the stack trace is the second.",
+        },
+        {
+          title: "Real screenshots or none",
+          body: "The landing page shows no mockups. I built a small demo shop, pushed a real bug at 23:02, let real browsers hit it at 23:12, and captured what Apperio did next: grouped the error, named the commit, opened the GitHub issue, and judged the fix deploy healthy. The production build drops any capture that is missing rather than falling back to a mock.",
+        },
+        {
+          title: "Webhooks over polling",
+          body: "The first GitHub integration polled with each user's OAuth token. The GitHub App replaced it with signed webhooks, verified against the raw request body, so commits arrive within seconds and no user token sits on the server.",
+        },
+        {
+          title: "Check what's deployed before debugging",
+          body: "A GitHub integration 'bug' turned out to be production serving six month old code: the host had stopped deploying after the repositories moved to a new GitHub organisation. Since then the first step of any production bug is confirming which commit is actually live.",
+        },
+      ],
+      outcome:
+        "Apperio came out of beta in October 2026 with open signup. The full loop runs in production: SDK to grouped error, suspect commit, AI explanation, GitHub issue and back again when the issue closes. Before launch I audited every project route and added membership checks across the board. Next up are a single feed of everything that changed and broke in a project, and guided onboarding.",
+    },
   },
   {
     id: "apperio-sdk",
