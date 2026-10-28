@@ -1,14 +1,23 @@
+"use client";
+
 import { FileText } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { BookingCard } from "@/components/contact/BookingCard";
 import { SITE } from "@/data/site";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export function ContactSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section className="py-[var(--section-gap)]" data-animate="entrance">
+    <section
+      ref={sectionRef}
+      className="py-[var(--section-gap)]"
+      data-animate="entrance"
+    >
       <Container size="md">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-reveal>
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
             Contact
           </p>
@@ -23,7 +32,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-reveal>
           <ContactForm />
           <div className="space-y-6">
             <BookingCard />

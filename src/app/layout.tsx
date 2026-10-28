@@ -8,6 +8,7 @@ import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Preloader } from "@/components/layout/Preloader";
 import { FullscreenHint } from "@/components/layout/FullscreenHint";
+import { KeyboardShortcuts } from "@/components/layout/KeyboardShortcuts";
 import { ApperioProvider } from "@/components/layout/ApperioProvider";
 import { SITE } from "@/data/site";
 import "./globals.css";
@@ -70,6 +71,7 @@ export default function RootLayout({
           >
             <Preloader />
             <FullscreenHint />
+            <KeyboardShortcuts />
             <CustomCursor />
             <NoiseOverlay />
             {children}

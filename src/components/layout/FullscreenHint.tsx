@@ -1,23 +1,25 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { Maximize, X } from "lucide-react";
 import { useFullscreen } from "@/hooks/useFullscreen";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-const STORAGE_KEY = "fs-hint-dismissed";
-/** Let the preloader clear before inviting the visitor in. */
-const APPEAR_DELAY = 2800;
+/** Let the preloader / page-transition overlay clear before inviting them in. */
+const APPEAR_DELAY = 1600;
 /** Auto-retire the hint if it's ignored. */
-const AUTO_DISMISS = 11000;
+const AUTO_DISMISS = 9000;
 
 /**
- * A quiet, one-time invitation to go fullscreen for a more immersive pass
- * through the site. Desktop-only — F11 and the Fullscreen API are meaningless
- * on touch — and it never nags: once dismissed or used, it stays gone.
+ * A quiet invitation to go fullscreen for a more immersive pass through the
+ * site. Pops on entry to every page (keyed on the route), desktop-only — F11
+ * and the Fullscreen API are meaningless on touch — and gets out of the way:
+ * it auto-hides on fullscreen, auto-retires, and can be dismissed per view.
  */
 export function FullscreenHint() {
+  const pathname = usePathname();
   const { isFullscreen, isSupported, enter } = useFullscreen();
   const isDesktop = useMediaQuery("(min-width: 768px) and (pointer: fine)");
   const reducedMotion = useReducedMotion();
@@ -25,30 +27,18 @@ export function FullscreenHint() {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  const dismiss = useCallback((remember = true) => {
+  const dismiss = useCallback(() => {
     setVisible(false);
-    if (remember) {
-      try {
-        localStorage.setItem(STORAGE_KEY, "true");
-      } catch {
-        /* storage blocked — nothing to persist */
-      }
-    }
     // Unmount after the exit transition finishes.
     setTimeout(() => setMounted(false), 500);
   }, []);
 
-  // Decide whether to show, after the preloader has had its moment.
+  // Pop on entry to each page, after the transition has had its moment.
   useEffect(() => {
     if (!isDesktop || !isSupported || isFullscreen) return;
 
-    let dismissed = false;
-    try {
-      dismissed = localStorage.getItem(STORAGE_KEY) === "true";
-    } catch {
-      /* storage blocked — treat as not dismissed */
-    }
-    if (dismissed) return;
+    setMounted(false);
+    setVisible(false);
 
     const showTimer = setTimeout(() => {
       setMounted(true);
@@ -57,23 +47,24 @@ export function FullscreenHint() {
     }, APPEAR_DELAY);
 
     return () => clearTimeout(showTimer);
-  }, [isDesktop, isSupported, isFullscreen]);
+    // Re-run on every route change so the hint greets each page.
+  }, [pathname, isDesktop, isSupported, isFullscreen]);
 
   // Auto-dismiss once shown.
   useEffect(() => {
     if (!visible) return;
-    const timer = setTimeout(() => dismiss(true), AUTO_DISMISS);
+    const timer = setTimeout(dismiss, AUTO_DISMISS);
     return () => clearTimeout(timer);
   }, [visible, dismiss]);
 
-  // If the visitor enters fullscreen on their own (or via the button), retire it.
+  // If the visitor enters fullscreen (on their own or via the button), retire it.
   useEffect(() => {
-    if (isFullscreen && mounted) dismiss(true);
+    if (isFullscreen && mounted) dismiss();
   }, [isFullscreen, mounted, dismiss]);
 
   const handleEnter = useCallback(() => {
     enter();
-    dismiss(true);
+    dismiss();
   }, [enter, dismiss]);
 
   if (!mounted) return null;
@@ -114,7 +105,7 @@ export function FullscreenHint() {
 
       <button
         type="button"
-        onClick={() => dismiss(true)}
+        onClick={dismiss}
         aria-label="Dismiss fullscreen tip"
         className="ml-1 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
         data-cursor="pointer"
