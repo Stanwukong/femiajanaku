@@ -5,6 +5,7 @@ import { Link } from "next-view-transitions";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ProjectCover } from "@/components/projects/ProjectCover";
+import { ArticleReveal } from "@/components/layout/ArticleReveal";
 import { PROJECTS } from "@/data/projects";
 
 interface Props {
@@ -38,6 +39,7 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <article className="py-[var(--section-gap)]" data-animate="entrance">
+      <ArticleReveal />
       <Container size="lg">
         {/* Back link */}
         <Link

@@ -8,6 +8,7 @@ import { NAV_ITEMS } from "@/data/navigation";
 import { useFullscreen } from "@/hooks/useFullscreen";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { OPEN_SHORTCUTS_EVENT } from "@/components/layout/ShortcutsHint";
 import { cn } from "@/lib/utils";
 
 interface Shortcut {
@@ -91,6 +92,13 @@ export function KeyboardShortcuts() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [handleKey]);
+
+  // Let the footer hint (or anything else) open the overlay.
+  useEffect(() => {
+    const openOverlay = () => setOpen(true);
+    window.addEventListener(OPEN_SHORTCUTS_EVENT, openOverlay);
+    return () => window.removeEventListener(OPEN_SHORTCUTS_EVENT, openOverlay);
+  }, []);
 
   // Move focus into the dialog when it opens.
   useEffect(() => {

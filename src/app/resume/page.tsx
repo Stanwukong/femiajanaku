@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE } from "@/data/site";
+import { ResumeViewer } from "@/components/resume/ResumeViewer";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -7,15 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function ResumePage() {
-  return (
-    <div className="w-full h-screen bg-background">
-      <iframe
-        src={SITE.cvPath}
-        width="100%"
-        height="100%"
-        style={{ border: "none" }}
-        title="Femi Ajanaku's Resume"
-      />
-    </div>
-  );
+  return <ResumeViewer />;
 }

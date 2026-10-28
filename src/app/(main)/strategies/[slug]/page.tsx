@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { EquityCurve } from "@/components/trading/EquityCurve";
 import { MetricsGrid } from "@/components/trading/MetricsGrid";
 import { TradeTable } from "@/components/trading/TradeTable";
+import { ArticleReveal } from "@/components/layout/ArticleReveal";
 import { STRATEGIES } from "@/data/strategies";
 
 interface Props {
@@ -48,6 +49,7 @@ export default async function StrategyPage({ params }: Props) {
 
   return (
     <article className="py-[var(--section-gap)]" data-animate="entrance">
+      <ArticleReveal />
       <Container size="lg">
         <Link
           href="/#trading"

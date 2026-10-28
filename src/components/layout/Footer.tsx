@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionLink } from "@/components/layout/SectionLink";
+import { ShortcutsHint } from "@/components/layout/ShortcutsHint";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/data/navigation";
 import { SITE } from "@/data/site";
 
@@ -86,6 +87,9 @@ export function Footer() {
             <p className="text-sm text-muted-foreground mt-1">
               Deployed on Vercel.
             </p>
+            <div className="mt-4">
+              <ShortcutsHint />
+            </div>
           </div>
         </div>
       </Container>
