@@ -6,6 +6,8 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ProjectCover } from "@/components/projects/ProjectCover";
 import { ArticleReveal } from "@/components/layout/ArticleReveal";
+import { CaseStudyRail } from "@/components/layout/CaseStudyRail";
+import type { RailItem } from "@/components/layout/RailLines";
 import { PROJECTS } from "@/data/projects";
 
 interface Props {
@@ -37,9 +39,19 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
   const prevProject = PROJECTS[(currentIndex - 1 + PROJECTS.length) % PROJECTS.length];
 
+  // Section map for the case-study rail — only the sections actually rendered.
+  const railItems: RailItem[] = [
+    { id: "overview", label: "Overview" },
+    ...(caseStudy?.problem ? [{ id: "problem", label: "Problem" }] : []),
+    ...(caseStudy ? [{ id: "work", label: "What I built" }] : []),
+    ...(caseStudy?.decisions?.length ? [{ id: "decisions", label: "Decisions" }] : []),
+    ...(caseStudy?.outcome ? [{ id: "outcome", label: "Outcome" }] : []),
+  ];
+
   return (
     <article className="py-[var(--section-gap)]" data-animate="entrance">
       <ArticleReveal />
+      <CaseStudyRail items={railItems} />
       <Container size="lg">
         {/* Back link */}
         <Link
@@ -72,7 +84,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         {/* Project info */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-animate="entrance">
+        <div id="overview" className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 scroll-mt-24" data-animate="entrance">
           <div className="md:col-span-2">
             <h1
               className="text-h1 mb-4"
@@ -137,7 +149,7 @@ export default async function ProjectPage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-animate="entrance">
             <div className="md:col-span-2 space-y-10">
               {caseStudy.problem && (
-                <section>
+                <section id="problem" className="scroll-mt-24">
                   <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
                     The problem
                   </h2>
@@ -145,7 +157,7 @@ export default async function ProjectPage({ params }: Props) {
                 </section>
               )}
 
-              <section>
+              <section id="work" className="scroll-mt-24">
                 <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
                   What I built
                 </h2>
@@ -163,7 +175,7 @@ export default async function ProjectPage({ params }: Props) {
               </section>
 
               {caseStudy.decisions && caseStudy.decisions.length > 0 && (
-                <section>
+                <section id="decisions" className="scroll-mt-24">
                   <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
                     Key decisions
                   </h2>
@@ -179,7 +191,7 @@ export default async function ProjectPage({ params }: Props) {
               )}
 
               {caseStudy.outcome && (
-                <section>
+                <section id="outcome" className="scroll-mt-24">
                   <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
                     Outcome
                   </h2>

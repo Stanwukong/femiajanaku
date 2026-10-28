@@ -8,6 +8,8 @@ import { EquityCurve } from "@/components/trading/EquityCurve";
 import { MetricsGrid } from "@/components/trading/MetricsGrid";
 import { TradeTable } from "@/components/trading/TradeTable";
 import { ArticleReveal } from "@/components/layout/ArticleReveal";
+import { CaseStudyRail } from "@/components/layout/CaseStudyRail";
+import type { RailItem } from "@/components/layout/RailLines";
 import { STRATEGIES } from "@/data/strategies";
 
 interface Props {
@@ -47,9 +49,21 @@ export default async function StrategyPage({ params }: Props) {
 
   const baseline = parseDeposit(strategy.conditions?.initialDeposit);
 
+  // Section map for the case-study rail — only the sections actually rendered.
+  const railItems: RailItem[] = [
+    { id: "overview", label: "Overview" },
+    ...(strategy.mechanics.length > 0
+      ? [{ id: "mechanics", label: "How it trades" }]
+      : []),
+    { id: "performance", label: "Performance" },
+    { id: "equity", label: "Equity curve" },
+    { id: "journal", label: "Journal" },
+  ];
+
   return (
     <article className="py-[var(--section-gap)]" data-animate="entrance">
       <ArticleReveal />
+      <CaseStudyRail items={railItems} />
       <Container size="lg">
         <Link
           href="/#trading"
@@ -61,7 +75,7 @@ export default async function StrategyPage({ params }: Props) {
         </Link>
 
         {/* Header */}
-        <header className="mb-12" data-animate="entrance">
+        <header id="overview" className="mb-12 scroll-mt-24" data-animate="entrance">
           <div className="mb-4 flex flex-wrap items-center gap-2">
             <span className="rounded-full border border-border px-2.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground">
               {strategy.platform}
@@ -104,7 +118,7 @@ export default async function StrategyPage({ params }: Props) {
 
         {/* How it trades */}
         {strategy.mechanics.length > 0 && (
-          <section className="mb-12" data-animate="entrance">
+          <section id="mechanics" className="mb-12 scroll-mt-24" data-animate="entrance">
             <h2 className="text-h3 mb-5">How it trades</h2>
             <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
               {strategy.mechanics.map((m) => (
@@ -120,7 +134,7 @@ export default async function StrategyPage({ params }: Props) {
         )}
 
         {/* Performance */}
-        <section className="mb-12" data-animate="entrance">
+        <section id="performance" className="mb-12 scroll-mt-24" data-animate="entrance">
           <h2 className="text-h3 mb-5">Performance</h2>
           <MetricsGrid
             metrics={strategy.metrics}
@@ -131,7 +145,7 @@ export default async function StrategyPage({ params }: Props) {
         </section>
 
         {/* Equity curve */}
-        <section className="mb-12" data-animate="entrance">
+        <section id="equity" className="mb-12 scroll-mt-24" data-animate="entrance">
           <h2 className="text-h3 mb-1">Equity curve</h2>
           <p className="mb-5 text-sm text-muted-foreground">
             Account balance and drawdown across every closed trade.
@@ -174,7 +188,7 @@ export default async function StrategyPage({ params }: Props) {
         </section>
 
         {/* Journal */}
-        <section className="mb-12" data-animate="entrance">
+        <section id="journal" className="mb-12 scroll-mt-24" data-animate="entrance">
           <h2 className="text-h3 mb-1">Trade journal</h2>
           <p className="mb-5 text-sm text-muted-foreground">
             Every closed position from the test, in order.
