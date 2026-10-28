@@ -7,6 +7,7 @@ import { spaceGrotesk, inter, jetbrainsMono } from "@/lib/fonts";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Preloader } from "@/components/layout/Preloader";
+import { FullscreenHint } from "@/components/layout/FullscreenHint";
 import { ApperioProvider } from "@/components/layout/ApperioProvider";
 import { SITE } from "@/data/site";
 import "./globals.css";
@@ -68,6 +69,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Preloader />
+            <FullscreenHint />
             <CustomCursor />
             <NoiseOverlay />
             {children}
