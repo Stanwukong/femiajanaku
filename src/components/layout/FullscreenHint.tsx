@@ -14,7 +14,7 @@ const AUTO_DISMISS = 9000;
 
 /**
  * A quiet invitation to go fullscreen for a more immersive pass through the
- * site. Pops on entry to every page (keyed on the route), desktop-only — F11
+ * site. Pops on entry to every page (keyed on the route), desktop-only — the F key
  * and the Fullscreen API are meaningless on touch — and gets out of the way:
  * it auto-hides on fullscreen, auto-retires, and can be dismissed per view.
  */
@@ -67,6 +67,20 @@ export function FullscreenHint() {
     dismiss();
   }, [enter, dismiss]);
 
+  // While the hint shows, a bare F goes fullscreen (a keypress counts as the gesture the API needs).
+  useEffect(() => {
+    if (!visible) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() !== "f" || e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("input, textarea, select, [contenteditable='true']")) return;
+      e.preventDefault();
+      handleEnter();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [visible, handleEnter]);
+
   if (!mounted) return null;
 
   return (
@@ -90,7 +104,7 @@ export function FullscreenHint() {
       <p className="text-xs text-muted-foreground">
         Press{" "}
         <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[0.7rem] text-foreground">
-          F11
+          F
         </kbd>{" "}
         for the full view —{" "}
         <button

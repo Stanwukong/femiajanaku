@@ -49,6 +49,53 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: "cay",
+    slug: "cay",
+    name: "Cay",
+    description: "A Dynamic Island for Windows 11: a pill at the top of the screen for media, live activities and Claude Code runs you approve from it.",
+    longDescription: "Cay (formerly TopBar) is a small pill pinned to the top centre of Windows 11. Hover the top edge and it opens into a panel with your open apps, what's playing, your calendar and your Claude Code sessions; when something happens (a song changes, the volume moves, headphones connect, a session finishes or needs you) it grows for a moment and shrinks back. It never takes focus from the app you're in, and while collapsed it doesn't block a single click. Press Win+Alt+A to hand Claude Code a task: Cay runs it in the background, and every permission request, question and plan comes to the island to answer. A Rust core on Tauri 2 with a React front end; the installer is about 1.5 MB.",
+    url: "https://github.com/Stanwukong/wpill",
+    image: "/cay.png",
+    tags: ["Desktop App", "Windows", "AI Agents", "Open Source"],
+    stack: ["Rust", "Tauri 2", "Win32 / WinRT", "UI Automation", "React", "TypeScript", "Framer Motion", "Vite", "Claude Code"],
+    role: "Creator & Engineer",
+    year: 2026,
+    featured: true,
+    caseStudy: {
+      context: "Personal project · open source (MIT)",
+      problem:
+        "Windows 11 has no light, glanceable place for what's happening right now. The taskbar is busy and Alt+Tab is modal. And as I handed more work to Claude Code, I kept leaving a terminal open just to watch for the moment it needed me. I wanted one quiet surface at the top of the screen that shows that state, lets me answer from wherever I am, and otherwise stays out of the way.",
+      contributions: [
+        "Built the island as one never-activated Tauri window: a Rust thread polls the cursor 60 times a second and owns every hover, expand and click-through decision, so React only animates what Rust tells it",
+        "Added now playing through Windows' media sessions, with colours taken from the album art, plus live activities for volume, brightness, Bluetooth headphones, battery, Caps Lock and screenshots you can drag straight out of the island",
+        "Connected Claude Code sessions through its hooks: a tiny forwarder exe and a per-user named pipe show when a session works, finishes or needs you, and permission requests, questions and plans can be answered from the island",
+        "Built background agent runs on headless Claude Code: a command window (Win+Alt+A), each run in a Windows Job Object so Stop kills the whole process tree, Claude Code's own permission modes, an audit trail, and routines that run on a schedule",
+        "Gave Claude eyes and hands on the desktop through approved tools: window screenshots, UI Automation outlines, and clicks and typing that check their target again before every input and abort the moment you touch the mouse or keyboard",
+        "Added Google Calendar and Tasks with my own OAuth client, the refresh token in Windows Credential Manager and requests over WinHTTP, so the app pulls in no extra HTTP or TLS libraries",
+      ],
+      decisions: [
+        {
+          title: "Rust owns the state, React only animates",
+          body: "A collapsed island gets no mouse events at all, so the DOM can't decide when to open. The Rust poller decides open, closed or showing an activity, times every notice, and switches click-through itself. The front end never runs a timer to hide anything, which also matters because WebView2 throttles background timers.",
+        },
+        {
+          title: "Never take focus, never block a click",
+          body: "The window can't be activated and is click-through except over the panel's real shape. Even the screenshot drag-out runs the shell's own drag loop from the non-activating window, so using Cay never pulls you out of the app you're working in.",
+        },
+        {
+          title: "Approvals, never bypass",
+          body: "Agent runs use Claude Code's own permission modes (Auto by default, or Ask, Accept edits and Plan) and always route its permission prompt to the island. Cay can't express Claude Code's bypass modes at all, and a request nobody clicked gets no reply from Cay, so Claude Code asks as usual.",
+        },
+        {
+          title: "Measure the flicker, don't guess",
+          body: "The island blinked out for a moment before collapsing. Capturing the screen every 20 ms showed it vanished for about 140 ms exactly when it became click-through: Tauri's toggle flips a window style that makes Windows drop the WebView2 surface. The window now stays layered and only one style bit flips.",
+        },
+      ],
+      outcome:
+        "Measured on a release build: an installer of about 1.5 MB, around 6 MB of RAM for the Rust process itself (WebView2 takes the rest), and about 1.4% of one core while idle. Claude Code runs, routines, desktop actions and the calendar all work end to end, and the project keeps a written decision log of more than 40 entries. Next is the v0.2 release with a published checksum, then code signing.",
+    },
+  },
+  {
     id: "apperio-sdk",
     slug: "apperio-sdk",
     name: "Apperio SDK",
