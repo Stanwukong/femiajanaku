@@ -26,7 +26,7 @@ export function SpotifyPlayer() {
           data-reveal
           data-testid="embed-iframe"
           style={{ borderRadius: "12px" }}
-          src="https://open.spotify.com/embed/track/6oqdO9TLmLOv7dt7GIq0R4?utm_source=generator&si=3bf91a80a56c429f"
+          src="https://open.spotify.com/embed/track/7lNFaTHV5IH8xaSXPqllOn?utm_source=generator&si=d0afa309e3ee4c66"
           width="100%"
           height="352"
           frameBorder="0"
