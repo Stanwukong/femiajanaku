@@ -9,6 +9,8 @@ import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { StrategyGrid } from "@/components/trading/StrategyGrid";
 import { STRATEGIES, toCardData } from "@/data/strategies";
 import { ContactSection } from "@/components/contact/ContactSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { personJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   description:
@@ -25,6 +27,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={personJsonLd} />
       <div id="home" className="scroll-mt-16">
         <Hero />
         <Capabilities />

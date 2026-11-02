@@ -11,6 +11,7 @@ import { ArticleReveal } from "@/components/layout/ArticleReveal";
 import { CaseStudyRail } from "@/components/layout/CaseStudyRail";
 import type { RailItem } from "@/components/layout/RailLines";
 import { STRATEGIES } from "@/data/strategies";
+import { pageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,10 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const strategy = STRATEGIES.find((s) => s.slug === slug);
   if (!strategy) return { title: "Strategy Not Found" };
 
-  return {
+  return pageMetadata({
     title: `${strategy.name} — ${strategy.platform}`,
     description: strategy.tagline,
-  };
+    path: `/strategies/${strategy.slug}`,
+    type: "article",
+  });
 }
 
 /** "$10,000" -> 10000, so the chart can draw the starting-deposit reference. */

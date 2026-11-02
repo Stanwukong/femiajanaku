@@ -8,7 +8,10 @@ import { ProjectCover } from "@/components/projects/ProjectCover";
 import { ArticleReveal } from "@/components/layout/ArticleReveal";
 import { CaseStudyRail } from "@/components/layout/CaseStudyRail";
 import type { RailItem } from "@/components/layout/RailLines";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { PROJECTS } from "@/data/projects";
+import { SITE } from "@/data/site";
+import { PERSON_ID, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -23,10 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = PROJECTS.find((p) => p.slug === slug);
   if (!project) return { title: "Project Not Found" };
 
-  return {
+  return pageMetadata({
     title: project.name,
     description: project.description,
-  };
+    path: `/projects/${project.slug}`,
+    type: "article",
+  });
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -50,6 +55,29 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <article className="py-[var(--section-gap)]" data-animate="entrance">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CreativeWork",
+              name: project.name,
+              description: project.longDescription || project.description,
+              url: `${SITE.url}/projects/${project.slug}`,
+              dateCreated: String(project.year),
+              keywords: project.stack.join(", "),
+              ...(project.image && { image: `${SITE.url}${project.image}` }),
+              ...(project.url && { sameAs: project.url }),
+              creator: { "@type": "Person", "@id": PERSON_ID, name: SITE.name },
+            },
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Projects", path: "/#projects" },
+              { name: project.name, path: `/projects/${project.slug}` },
+            ]),
+          ],
+        }}
+      />
       <ArticleReveal />
       <CaseStudyRail items={railItems} />
       <Container size="lg">
