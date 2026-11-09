@@ -23,6 +23,7 @@ export const PROJECTS: Project[] = [
         "Added session replay on rrweb, loaded through a dynamic import only when a project turns it on, so sites that don't use it never download it",
         "Built the Express and MongoDB API: log ingestion, error fingerprinting and grouping, alert rules to email, Slack, webhooks and GitHub, and a WebSocket feed for the live log stream",
         "Built change intelligence: a GitHub App that receives signed push webhooks, AI summaries of each commit, a deploy API that marks every release and gives it a verdict by comparing error rates before and after, and a suspect commit on every new error group",
+        "Built the AI layer on the Claude API as small, single-purpose steps: commit summaries, a ranked list of suspect commits, a root cause explanation grounded in the stack trace, and a drafted GitHub issue. Each returns a fixed JSON shape that is checked before use",
         "Closed the loop with GitHub issues: one click drafts the issue with the AI explanation and the suspect commit, and closing it on GitHub resolves the error in Apperio",
         "Built the Next.js dashboard (77 pages across logs, errors, issues, changes, performance, sessions, alerts, teams and billing), the landing page and the docs, with every docs code sample type checked against the published SDK",
       ],
@@ -34,6 +35,14 @@ export const PROJECTS: Project[] = [
         {
           title: "Real screenshots or none",
           body: "The landing page shows no mockups. I built a small demo shop, pushed a real bug at 23:02, let real browsers hit it at 23:12, and captured what Apperio did next: grouped the error, named the commit, opened the GitHub issue, and judged the fix deploy healthy. The production build drops any capture that is missing rather than falling back to a mock.",
+        },
+        {
+          title: "Heuristics narrow the field, the model ranks it",
+          body: "Finding the suspect commit runs in two steps. First a cheap pass takes up to 20 commits from the seven days before the error first appeared and scores them: +40 for every touched file named in the stack trace, and up to +20 for being recent. The top ten then go to Claude with the error and the stack, and it returns at most three of them as {sha, score, rationale}, with the rationale worded as a suggestion, never as blame. Any sha that wasn't among the candidates is dropped and scores are clamped to 0–100, so the model can only reorder real commits, never invent one. If the AI is unavailable, the heuristic still answers, but only when a commit touched a file in the stack.",
+        },
+        {
+          title: "Every AI step has a contract and a fallback",
+          body: "Each call asks for a fixed JSON shape (commit summaries as {sha, summary, technicalSummary}, issue drafts as {title, body}, rankings as {sha, score, rationale}). The reply is parsed and type checked before anything uses it, and anything malformed is discarded rather than shown. Commit summaries are told to read the diff, because commit messages can be wrong. The issue draft has a 25 second limit because someone is waiting on the dialog; past it, a deterministic template is used. Spending is capped per project, by tokens per hour and by a monthly summary budget whose reserved slots are released when a call fails, so the numbers count only summaries that were actually produced.",
         },
         {
           title: "Webhooks over polling",
@@ -71,12 +80,29 @@ export const PROJECTS: Project[] = [
         "Connected Claude Code sessions through its hooks: a tiny forwarder exe and a per-user named pipe show when a session works, finishes or needs you, and permission requests, questions and plans can be answered from the island",
         "Built background agent runs on headless Claude Code: a command window (Win+Alt+A), each run in a Windows Job Object so Stop kills the whole process tree, Claude Code's own permission modes, an audit trail, and routines that run on a schedule",
         "Gave Claude eyes and hands on the desktop through approved tools: window screenshots, UI Automation outlines, and clicks and typing that check their target again before every input and abort the moment you touch the mouse or keyboard",
+        "Opened the island to other agents: Codex sessions through the same hook forwarder, and runs of other agents (first Goose on a local Ollama model) through the Agent Client Protocol, all with the same approval modes",
         "Added Google Calendar and Tasks with my own OAuth client, the refresh token in Windows Credential Manager and requests over WinHTTP, so the app pulls in no extra HTTP or TLS libraries",
       ],
       decisions: [
         {
           title: "Rust owns the state, React only animates",
           body: "A collapsed island gets no mouse events at all, so the DOM can't decide when to open. The Rust poller decides open, closed or showing an activity, times every notice, and switches click-through itself. The front end never runs a timer to hide anything, which also matters because WebView2 throttles background timers.",
+        },
+        {
+          title: "Orchestrate the agent, don't rebuild it",
+          body: "Claude Code already plans, runs tools and keeps its own permission rules, so Cay is an orchestration layer around it, not another agent framework. A run is claude -p with stream-json in and out: system/init opens each turn with the session id, and result closes it with the turns used and the cost. Cay keeps stdin open while any message is unanswered and closes it once each has its result. The process then exits, and a follow-up resumes the same session in a new process with --resume, so no idle agent sits waiting. Every run has a cap on turns and spend (25 turns and $1 by default), and the process tree lives in a Job Object, so Stop really stops it.",
+        },
+        {
+          title: "One MCP server for tools and approvals, one trust boundary",
+          body: "Claude Code's permission prompts go to a tool on Cay's own MCP server, which also hosts the desktop tools, so there is one way in. Each run gets its own mcp.json carrying the run id and a 128-bit random token. A small bridge relays JSON-RPC over a per-user named pipe, and its first message must name a live run with that token, so no stray local process can answer an approval. Every tool call is classed as read, change or input. \"Allow for this run\" is scoped narrowly: per program for shell commands, and never for a command containing &, |, ; or $(, because remembering cd would also allow cd x && rm -rf y. The reply format for the prompt tool isn't documented, so I verified it by hand.",
+        },
+        {
+          title: "Act on exact references, never on a guess",
+          body: "Desktop actions name an element by the [n] ref from the agent's latest UI Automation tree. At action time Cay finds the element again, first by runtime id and then by type, automation id and name, and all three must agree or the reply is elementGone (\"look again\"). A click given in screenshot pixels is refused as staleView if the window has moved since. UI Automation's invoke and set_value come first; real mouse and keyboard input comes last and is approved one action at a time, because what step two does depends on what step one did.",
+        },
+        {
+          title: "Measure what the tools cost the agent",
+          body: "Claude Code's /usage showed Cay's MCP server at 21% of my usage. A full UI tree was about 15k tokens, eight times a screenshot, and a forced look after every action doubled both tokens and model turns. Trees now skip unnamed layout containers and offscreen elements and default to 250 elements and 24 KB (about 6k tokens), and action replies say what has focus so the agent looks again only when it needs to. Every look and action writes its time, reply size and image tokens to the audit trail, so the next optimisation starts from numbers.",
         },
         {
           title: "Never take focus, never block a click",
